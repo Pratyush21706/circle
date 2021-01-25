@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="js/p5.js"></script>
+    <script src="js/p5.dom.min.js"></script>
+        <script src="js/chat.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
+    <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/fontawesome-all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Circle</title>
+   
+</head>
+<body>
+<div class="home">
+       <div class="top">
+         <h1>Chats</h1>
+       <button class="opt" onclick="showProfile()">
+            <img class="avt" id="propic" src ="img/Avatars/user.png">
+                </button> 
+        </div>
+    <div class="wrapper">
+    </div>
+ <button class="refM" onclick="newFriend()">
+           +
+        </button>
+    </div> 
+    
+<div class="bg">
+        <div class="block">
+        <h2>Add Contact</h2>
+        <p>Enter Your Friend's Number</p>
+        <input type="number" class="ip1"><br>
+         <p>What Would you Call Him</p>
+        <input type="text" class="ip2"><br>
+            <button class="send" onclick="addSend()">
+                Add
+            </button>
+    </div>
+</div>
+        <div class= "profile" id = "prof">
+        <div class="mp">
+            <button class="back" onclick="backHome()">
+                <i class = "fa fa-arrow-left"></i></button>
+             
+                <h2 id="babare">
+                    My Profile
+                </h2>
+                <br><br><br>
+               <center>
+             <button class="circle" >
+            <img class="avt1" id="propicB" src ="img/Avatars/10.jpg">
+                </button> 
+               <div class="Details">
+                    <h2 id ="kam"></h2> 
+                   <p id="num"></p>
+                   <p id ="place">London, Uk</p>
+                   <br><br>
+                </div>
+           <div class="stats">
+                    <p class="inli">Friends</p>
+                       <p class="inli"> Joined</p><br><br>
+               <h3 class="  laure" id="kitna"> </h3>
+                <h3 class=" lauren"> 100</h3>
+
+                   </div>
+                   </center>         
+            </div></div>
+    
+    <div class="chatPage">
+        <div class="header">
+            <button class="backH" onclick="closeChat()">
+                <i class = "fa fa-angle-left"></i>
+            </button>
+             <h3 id ="nam">Your Name</h3>
+        </div>
+        <div class="container">
+        </div>
+        <div class = "allShit">
+           <div class="msgP">
+                 <input type="text" class="msgIp"  id="msi" placeholder="Type your message here... ">
+            </div>
+            <button class= "send" onclick="addChatData()">
+                <i class="fa fa-paper-plane"></i>
+               </button>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+

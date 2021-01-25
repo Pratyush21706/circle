@@ -1,0 +1,475 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+/*Home Page Part Starts Here*/
+
+.home{
+    position: absolute;
+    top : 0;
+    z-index: 60;
+    width : 100vw;
+    height : 100vh;
+/*    display: none;*/
+}
+
+.opt{
+      width : 10vw;
+    height : 10vw;
+    border-radius: 3vw;
+    padding : 1vw;
+    overflow: hidden;
+    margin-top: 3vh;
+    margin-left: 2vw;
+    border : none;
+    display: inline-block;
+    position: absolute;
+    top : 0;
+    right : 0;
+    margin-right: 5vw;
+    outline : none;
+}
+
+.avt{
+    width  :10vw;
+    margin: -1vw
+}
+
+.top{
+    padding-left: 5vw;
+    background: #ffffff;
+    position: fixed;
+    width : 95%;
+    height : 12vh;
+    z-index: 5;
+/*    margin-top: -2vh;*/
+}
+
+.top h1{
+    font-size: 8vw
+}
+
+.nav{
+    position: fixed;
+    bottom: 0;
+    left : 0;
+    width : 94.1vw;
+    background: white;;
+    border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    padding: 2vh;
+    height : 5vh;
+    box-shadow: 0px -2px 10px 0px rgba(0,0,0,0.1);
+    z-index: 5;
+
+}
+
+.ref{
+    display: inline-block;
+    background: none;
+    color : gray;
+    border : 0px;
+    font-size: 6vw;
+    margin-left: 15vw;
+    position: absolute;
+    left : 0;
+}
+
+.refR{
+    display: inline-block;
+    background: none;
+    color : gray;
+    border : 0px;
+    font-size: 6.5vw;
+    margin-right: 15vw;
+    position: absolute;
+    right : 0;
+    
+}
+.refM{
+    margin-left: 45vw;
+        background : royalblue;
+    color : white;
+    font-size: 7vw;
+    padding : 1vw;
+    padding-left : 3vw;
+    padding-right : 3vw;
+    border-radius: 30px;
+    position: absolute;
+    bottom : 0;
+    right : 0;
+    margin: 5vh;
+    border : 0px;
+    box-shadow: 0px 0px 10px 2px royalblue;
+}
+
+.chat{
+}
+
+.wrapper{
+    width : 100%;
+/*    height : 100%;*/
+/*    background: red;*/
+    position: absolute;
+    margin-top: 12vh;
+/*    overflow: scroll;*/
+}
+
+.chat{
+    width : 85%;
+    height : 10vh;
+    background: blue;
+    margin-left: 5vw;
+/*    z-index: 100;*/
+    margin-top: 21vh;
+    border-radius: 10px;
+    background: rgb(228,228,228);
+background: linear-gradient(circle, rgba(228,228,228,1) 0%, rgba(227,225,225,1) 34%, rgba(218,213,213,1) 53%, rgba(230,224,224,1) 75%, rgba(244,235,235,1) 80%, rgba(236,232,232,1) 87%, rgba(255,255,255,1) 100%, rgba(228,228,228,1) 256%);
+    margin-top: 2vh;
+}
+
+.op{
+/*    height : 10px;*/
+    border-radius: 400px;
+    border : 0px;
+    margin: 3vw;
+}
+
+.name{
+    display: inline;
+    position  : absolute;
+    font-size: 4.2vw;
+    font-weight: 700;
+    margin-top: 1.8vh;
+    
+}
+#lams{
+    display: inline;
+    position  : absolute;
+    margin-top: 5.7vh;
+    color : #858585;
+    max-width: 50vw;
+    overflow: hidden;
+}
+.bg{
+    width : 100vw;
+    height : 100vh;
+    position: absolute;
+    top : 0;
+    background: rgba(0,0,0,0.1);
+    z-index: 989798;
+    display: none;
+}
+.block{
+    width : 60%;
+    margin-left: 18%;
+    padding: 2vw;
+    background: white;
+     box-shadow: 0px -2px 10px 2px rgba(0,0,0,0.1);
+    z-index: 9;
+    position: absolute;
+    top : 0;
+    margin-top: 30vh;
+/*    border-left: 2px solid red;*/
+    border-radius: 10px;
+        
+}
+.send{
+    margin-top: 2vh;
+    margin-left: 45%;
+}
+
+.thanks{
+    background: red;
+    position: absolute;
+    width : 85%;
+    height : 10vh;
+    margin-left: -13%;
+    margin-top: -2.1vh;
+    border-radius: 15px;
+    opacity: 0;
+
+}
+
+.block h2{
+          text-align: center;
+    }
+
+.block input{
+    width : 90%;
+    padding: 1vh;
+    border-radius: 5px;
+    border : 0px solid royalblue;
+    background: #efefef;
+    transition: .5s;
+    font-size: 3.7vw;
+        color : gray;
+
+}
+
+.block input:focus{
+    box-shadow: 0px 0px 4px 2px royalblue;
+    outline: none;
+    padding: 1.1vh;
+    color : black;
+}
+
+.block button{
+    padding: .9vh;
+    font-size: 3vw;
+    width : 50%;
+    margin-left: 25%;
+    border : 0px;
+    background: royalblue;
+    color : white;
+    border-radius: 5px;
+}
+
+/*Profile Page Part Starts*/
+
+      .profile{
+        position: absolute;
+        top : 0;
+        background: #f9f9ff;
+          z-index: 5786870;
+          width : 100%;
+          height : 100vh;
+          display: none;
+    }
+    
+    .mp{
+        background: white;
+        padding-bottom : 5vh;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        padding-left : 4vw;
+        box-shadow: 0px 2px 10px 2px rgba(0,0,0,.1)
+    }
+    
+    .circle{
+        background: hotpink;
+/*        margin-left: 40%;*/
+        width : 14vw;
+        height : 10vh;
+        margin-top: -8vh;
+            border-radius: 100vw;
+        border : 0px;
+        overflow: hidden;
+    }
+.avt1{
+    width  :14vw;
+    margin: -2vw
+}
+    #babare{
+        margin-top: 2vh;
+        margin-left: 1vw;
+    }
+    
+    .back{
+        background: none;
+        border : 0px;
+        font-size: 15px;
+        margin-top: 2vh;
+/*        color : #FAFBFD*/
+    }
+    .Details{
+        width : 100%;
+        text-align: center;
+    }
+    
+    #emil{
+        margin-top: -1vh;
+    }
+    #place{
+        margin-top: -1vh;
+    }
+    
+    .stats{
+        width : 100%;
+        margin-left: 5vw;
+        margin-top: -1vh;
+        text-align: left;
+    }
+    
+    .inli{
+        display: inline;
+        margin-left: 20vw;
+        padding-bottom: 200px;
+    }
+    
+    .laure{
+        margin-left: 22vw;
+                display: inline;
+    }
+    .lauren{
+        margin-left: 26.5vw;
+        display: inline-block;
+        margin-top: -2vh
+    }
+/*Profile Page Part Starts*/
+
+/*Home Page Part Ends Here*/
+
+/*Chat Page Starts Here*/
+
+.chatPage{
+    position: absolute;
+    top : 0;
+    z-index: 686;
+    height: 100vh;
+    background: #f9f9f9;
+    width  :100vw;
+    display: none;
+}
+
+.header{
+    width  :100vw;
+    background: white;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        padding: 2vh;
+    position: fixed;
+
+}
+
+.header button{
+    background: none;
+    border : 0px;
+    color : dodgerblue;
+    font-size: 5vw;
+}
+.header h3{
+    display: inline;
+    margin-left: 35vw;
+}
+
+.allShit{
+    width : 100vw;
+    height : 10vh;
+    position: fixed;
+    bottom  :0;
+    background: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px
+
+}
+
+.msgIp{
+    margin-left: 1vw;
+    width : 80%;
+    font-size: 4vw;
+    border : 0px;
+    background: none;;
+    outline: none;
+}
+.msgP{
+    margin-top: 1.5vh;
+    margin-left: 3vw;
+    width : 80%;
+    font-size: 4vw;
+    padding: 1.3vw;
+    border-radius: 30px;
+    border : 0px;
+    background: #efefef;
+    outline: none;
+}
+
+.send{
+    display: inline-block;
+    position: absolute;
+    right : 0;
+    bottom : 0;
+    margin: 5vw;
+    font-size: 4vw;
+    padding : 1vh;
+    padding-left: 1.8vw;
+    padding-right: 2.1vw;
+    border-radius: 30px;
+    border : 0px;
+    margin-bottom: 3vh;
+    background: royalblue;
+    color : white;
+    outline : none;
+
+}
+
+.container{
+    margin-top: 10vh;
+    width  :95%;
+/*    border-radius: 30px;*/
+    padding: 2vw;
+/*    background: red;*/
+    overflow: scroll;
+    height : 75vh;
+}
+
+.container::-webkit-scrollbar{
+    display : none;
+}
+
+.ms1{
+    background: royalblue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+/*    position: absolute;*/
+    left : 0;
+    width : fit-content;
+    padding: 1vh;
+    margin-top: 1vh;
+    color : white;
+    max-width: 65%;
+}
+.ms2{
+    background: lightgray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+/*    position: absolute;*/
+    right : 0;
+    width : fit-content;
+    padding: 1vh;
+    margin-top: 1vh;
+    color : white;
+    max-width: 65%;
+}
+
+.msg{
+/*    background: red;*/
+}
+/*Chat Page Starts Here*/
+
+
+/*  Animation Section Starts Here  */
+
+@keyframes in-bottom{
+    from{
+        margin-top: 80vh;
+        opacity : 0;
+        height: 0vh;
+    }
+    
+    to{
+        margin-top: 0vh;
+        opacity : 1;
+        height: 100vh;
+    }
+}
+
+@keyframes in-bottom-one{
+    from{
+        margin-top: 100vh;
+        opacity : 0;
+        height: 0vh;
+    }
+    
+    to{
+        margin-top: 20vh;
+        opacity : 1;
+        height: 1vh;
+    }
+}
+
+/*  Animation Section Ends Here  */
