@@ -97,7 +97,7 @@ function gotData(data) {
     if (fruit.type == "chat") {
       chat = createDiv("").addClass("chat").parent(wrapper);
       ppc = createButton("").addClass("op").parent(chat);
-      createImg(fruit.avatar, "profile").addClass("avt").parent(ppc);
+      createImg("img/Avatars/user.png", "profile").addClass("avt").parent(ppc);
       createP(fruit.name).addClass("name").parent(chat);
       // createP(fruit.about).addClass("lms").parent(chat).id("lams");
       jij = createA("#", key).parent(ppc).addClass("thanks");
