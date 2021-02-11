@@ -2,141 +2,135 @@ localStorage.name;
 localStorage.number;
 localStorage.avatar;
 localStorage.random;
+var pro = false;
+var initiated = false;
+var url;
 
-function setup(){
-    loginPage = select(".container")
-    numPage = select(".p1")
-    detPage = select(".p2")
-    profile =select(".pic")
-    numInput = select(".phoneInput");
-    nameInput = select(".ipp");
+function setup() {
+  loginPage = select(".container");
+  numPage = select(".p1");
+  detPage = select(".p2");
+  profile = select(".pic");
+  numInput = select(".phoneInput");
+  nameInput = select(".ipp");
+  profileInput = createFileInput(handlePress);
+  profileInput.position(0, 0).id("myPP");
 
-      var firebaseConfig = {
-  apiKey: "AIzaSyBnNj8bNh5QHXSRxRdxoAlgmrPEA-nFUjw",
+  var firebaseConfig = {
+    apiKey: "AIzaSyBnNj8bNh5QHXSRxRdxoAlgmrPEA-nFUjw",
     authDomain: "chat-56398.firebaseapp.com",
     databaseURL: "https://chat-56398.firebaseio.com",
     projectId: "chat-56398",
     storageBucket: "chat-56398.appspot.com",
     messagingSenderId: "291372313538",
-    appId: "1:291372313538:web:60f67a12d7fdb59745045b"
+    appId: "1:291372313538:web:60f67a12d7fdb59745045b",
   };
-        //Initialising Firebase here
+  //Initialising Firebase here
   firebase.initializeApp(firebaseConfig);
-//    Console Logging firebase
+  //    Console Logging firebase
   console.log(firebase);
-//  Initialising the firebase database
- database = firebase.database();
-
+  //  Initialising the firebase database
+  database = firebase.database();
 }
 
-function openLogin(){
-    loginPage.style("display","block")
+function openLogin() {
+  loginPage.style("display", "block");
 }
 
-function lassan(){
-    numPage.style("display","none");
-    detPage.style("display","block");
-   document.body.style = "background  : red";
-    localStorage.number = numInput.value();
-    console.log(localStorage.number)
-}
-function changt1(){
-    console.log("1")
-    document.getElementById("propic").src ="img/Avatars/1.jpg";
-    localStorage.avatar = 1;
-
-}
-function changt2(){
-    console.log("2")
-    document.getElementById("propic").src ="img/Avatars/2.jpg";
-    localStorage.avatar = 2;
-
+function lassan() {
+  numPage.style("display", "none");
+  detPage.style("display", "block");
+  document.body.style = "background  : red";
+  localStorage.number = numInput.value();
+  console.log(localStorage.number);
 }
 
-function changt3(){
-    console.log("3")
-    document.getElementById("propic").src ="img/Avatars/3.jpg";
-    localStorage.avatar = 3;
-
-}
-function changt4(){
-    console.log("4")
-    document.getElementById("propic").src ="img/Avatars/4.jpg";
-    localStorage.avatar = 4;
-
-}
-
-function changt5(){
-    console.log("5")
-    document.getElementById("propic").src ="img/Avatars/5.jpg";
-    localStorage.avatar = 5;
-
-}
-
-function changt6(){
-    console.log("6")
-    document.getElementById("propic").src ="img/Avatars/6.jpg";
-    localStorage.avatar = 6;
-
-}
-
-function changt7(){
-    console.log("7")
-    document.getElementById("propic").src ="img/Avatars/7.jpg";
-    localStorage.avatar = 7;
-
-}
-function changt8(){
-    console.log("8")
-    document.getElementById("propic").src ="img/Avatars/8.jpg";
-    localStorage.avatar = 8;
-
-}
-
-function changt9(){
-    console.log("9")
-    document.getElementById("propic").src ="img/Avatars/9.jpg";
-    localStorage.avatar = 9;
-
-}
-function changt0(){
-    console.log("0")
-    document.getElementById("propic").src ="img/Avatars/10.jpg";
-    localStorage.avatar = 0;
-
-}
-
-function finalSend(){
+function finalSend() {
+  if (initiated == true && pro == true) {
     localStorage.name = nameInput.value();
-    console.log("Name :"+localStorage.name +" Avatar: "+localStorage.avatar+" Number : "+localStorage.number)
-     var data ={
-          name : localStorage.name,
-         number : localStorage.number,
-         avatar : localStorage.avatar,
-          type : "first"
-     }
-     database.ref(localStorage.number).push(data,finished);
-          localStorage.random=1
-
+    console.log(
+      "Name :" +
+        localStorage.name +
+        " Avatar: " +
+        localStorage.avatar +
+        " Number : " +
+        localStorage.number
+    );
+    var data = {
+      name: localStorage.name,
+      number: localStorage.number,
+      avatar: url,
+      type: "first",
+    };
+    database.ref(localStorage.number).push(data, finished);
+    localStorage.random = 1;
+  } else if (initiated == true && pro == false) {
+    alert("Wait The Profile Pic is Uploading");
+  } else {
+    alert("Please Chose a profile Image");
+  }
 }
 
 function finished(error) {
   if (error) {
-    console.log('ooops');
+    console.log("ooops");
   } else {
-    console.log('data saved!');
- window.location.href = "./home.html";
-      localStorage.random=1
+    console.log("data saved!");
+    window.location.href = "./home.html";
+    localStorage.random = 1;
   }
 }
 
-function draw(){
-    console.log(localStorage.random)
-    if(localStorage.random==null){
-        console.log("op")
+function draw() {
+  // console.log(localStorage.random)
+  if (localStorage.random == null) {
+    // console.log("op")
+  }
+  if (localStorage.random == 1 && pro == true) {
+    window.location.href = "./home.html";
+    console.log("jj");
+  }
+}
+
+function handlePress(file) {
+  document.querySelector(".im").src = file.data;
+  console.log("file-uploaded");
+  addProfile();
+  initiated = true;
+}
+
+function addProfile() {
+  const ref = firebase.storage().ref();
+  const file = document.querySelector("#myPP").files[0];
+  const name = file.name;
+  console.log(file.type);
+  const metadata = {
+    contentType: file.type,
+  };
+  const task = ref.child(name).put(file, metadata);
+  task.on(
+    "state_changed",
+    (snapshot) => {
+      // Observe state change events such as progress, pause, and resume
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log(
+        "Upload is " + progress + "% done" + " " + snapshot.bytesTransferred
+      );
+      kitna = str(Math.round(progress) + "%");
+    },
+    (error) => {
+      // Handle unsuccessful uploads
+    },
+    () => {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      task.snapshot.ref.getDownloadURL().then((link) => {
+        console.log("File available at", link);
+        url = link;
+        console.log(url);
+        pro = true;
+      });
     }
-    if(localStorage.random==1){
-          window.location.href = "./home.html"
-        console.log("jj")
-    }  
+  );
 }
