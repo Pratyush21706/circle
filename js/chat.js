@@ -79,7 +79,6 @@ function gotData(data) {
   var fruits = data.val();
   // Grab the keys to iterate over the object
   var keys = Object.keys(fruits);
-
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
     console.log(key);
