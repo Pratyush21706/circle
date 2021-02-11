@@ -1,7 +1,7 @@
 localStorage.name;
 localStorage.number;
 localStorage.avatar;
-localStorage.random;
+localStorage.harami;
 var pro = false;
 var initiated = false;
 var url;
@@ -63,7 +63,6 @@ function finalSend() {
       type: "first",
     };
     database.ref(localStorage.number).push(data, finished);
-    localStorage.random = 1;
   } else if (initiated == true && pro == false) {
     alert("Wait The Profile Pic is Uploading");
   } else {
@@ -77,16 +76,16 @@ function finished(error) {
   } else {
     console.log("data saved!");
     window.location.href = "./home.html";
-    localStorage.random = 1;
+    localStorage.harami = 1;
   }
 }
 
 function draw() {
-  // console.log(localStorage.random)
-  if (localStorage.random == null) {
+  // console.log(localStorage.harami)
+  if (localStorage.harami == null) {
     // console.log("op")
   }
-  if (localStorage.random == 1 && pro == true) {
+  if (localStorage.harami == 1) {
     window.location.href = "./home.html";
     console.log("jj");
   }
