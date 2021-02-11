@@ -197,6 +197,8 @@ function gotChat(data) {
 }
 
 function gotChatData(data) {
+  let objDiv = document.getElementById("chatparent");
+  objDiv.scrollTop = objDiv.scrollHeight - objDiv.clientHeight;
   console.log("Chata");
   var listings = selectAll(".msg");
   for (var i = 0; i < listings.length; i++) {

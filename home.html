@@ -83,15 +83,16 @@
             </button>
             <h3 id="nam">Your Name</h3>
         </div>
-        <div class="container">
+        <div class="container" id="chatparent">
         </div>
         <div class="allShit">
             <div class="msgP">
-                <input type="text" class="msgIp" id="msi" placeholder="Type your message here... ">
+                <button class="insideInput"><i class="fa fa-paperclip"></i></button><input type="text" class="msgIp"
+                    id="msi" placeholder="Type your message here... ">
+                <button class="insideInput" onclick="addChatData()">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
             </div>
-            <button class="send" onclick="addChatData()">
-                <i class="fa fa-paper-plane"></i>
-            </button>
         </div>
     </div>
 
