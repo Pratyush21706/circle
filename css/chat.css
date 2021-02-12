@@ -318,7 +318,7 @@ body {
   height: 100vh;
   background: #f2f6fa;
   width: 100vw;
-  /* display: none; */
+  display: none;
 }
 
 .header {
