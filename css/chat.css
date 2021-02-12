@@ -359,6 +359,7 @@ body {
   background: none;
   outline: none;
 }
+
 #cut {
   display: none;
 }
@@ -368,6 +369,7 @@ body {
   color: #9c9b9b;
   font-size: 1.1em;
 }
+
 .msgP {
   margin-top: 1.5vh;
   margin-left: 3vw;
@@ -381,6 +383,10 @@ body {
   padding: 0.5em;
   margin-left: 8%;
 }
+.msgIp:focus {
+  margin-top: -100vh;
+}
+
 .options {
   position: absolute;
   margin-left: 8%;
@@ -394,7 +400,7 @@ body {
   -webkit-animation-name: max-in;
   -webkit-animation-duration: 0.25s;
   overflow-x: auto;
-  white-space: nowrap;
+  white-space: nowramsgp;
   display: none;
 }
 .options::-webkit-scrollbar {
