@@ -26,7 +26,8 @@ var alphabets = [
   "y",
   "z",
 ];
-var bucket;
+var bucket,
+  p = 0;
 
 function setup() {
   wrapper = select(".wrapper");
@@ -242,4 +243,11 @@ function addChatData() {
 
 function closeChat() {
   chatPage.style("display", "none");
+}
+
+function showOptions() {
+  document.querySelector(".options").style = "display : block";
+}
+function hideOptions() {
+  document.querySelector(".options").style = "display : none";
 }

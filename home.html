@@ -83,12 +83,18 @@
             </button>
             <h3 id="nam">Your Name</h3>
         </div>
-        <div class="container" id="chatparent">
+        <div class="container" id="chatparent" onclick="hideOptions()">
         </div>
         <div class="allShit">
             <div class="msgP">
-                <button class="insideInput"><i class="fa fa-paperclip"></i></button><input type="text" class="msgIp"
-                    id="msi" placeholder="Type your message here... ">
+                <div class="options">
+                    <button class="file-opt"><i class="fa fa-image"></i> Image</button>
+                    <button class="file-opt"><i class="fa fa-camera-retro"></i> Video</button>
+                    <button class="file-opt"><i class="fa fa-file-alt"></i> Document</button>
+                </div>
+                <button class="insideInput" id="pin" onclick="showOptions()"><i class="fa fa-paperclip"></i></button>
+                <!-- <button class="insideInput" id="cut" onclick="hideOptions()"><i class="fa fa-cut"></i></button> -->
+                <input type="text" class="msgIp" id="msi" placeholder="Type your message here... ">
                 <button class="insideInput" onclick="addChatData()">
                     <i class="fa fa-paper-plane"></i>
                 </button>

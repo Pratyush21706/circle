@@ -353,11 +353,14 @@ body {
 
 .msgIp {
   margin-left: 1vw;
-  /* width: 40%; */
+  width: 72%;
   font-size: 1.2em;
   border: 0px;
   background: none;
   outline: none;
+}
+#cut {
+  display: none;
 }
 .insideInput {
   background: none;
@@ -378,7 +381,61 @@ body {
   padding: 0.5em;
   margin-left: 8%;
 }
+.options {
+  position: absolute;
+  margin-left: 8%;
+  background: #f2f6fa;
+  width: 70%;
+  height: 40%;
+  margin-top: -1%;
+  margin-top: -1px;
+  font-size: 1.1em;
+  font-weight: 800;
+  -webkit-animation-name: max-in;
+  -webkit-animation-duration: 0.25s;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: none;
+}
+.options::-webkit-scrollbar {
+  display: none;
+}
+@keyframes max-in {
+  from {
+    width: 0px;
+    opacity: 1;
+  }
+  to {
+    width: 70%;
+    opacity: 1;
+  }
+}
+.file-opt {
+  background: #d6d9e1;
+  /* color: white; */
+  border: none;
+  padding: 0.4em;
+  border-radius: 10px;
+}
 
+.file-opt i {
+  color: rgb(56, 56, 56);
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.file-opt:nth-child(2) i {
+  font-weight: 900;
+}
+.file-opt:nth-child(1) {
+  margin-left: 4%;
+}
+.file-opt:nth-child(2) {
+  margin-left: 4%;
+}
+.file-opt:nth-child(3) {
+  margin-left: 3.5%;
+}
 .send {
   display: inline-block;
   position: absolute;
