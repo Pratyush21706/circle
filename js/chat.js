@@ -42,7 +42,7 @@ function setup() {
   cont = select(".container");
   sendButton = select("#bhejo");
   shit = select(".msgP");
-  ppc = select(".pre-parent");
+  ppc = select("#lenge");
 
   // Creatingm the lame input buttons
   imageInput = createFileInput(handle).attribute("accept", "image/*");
@@ -241,14 +241,14 @@ function gotChatData(data) {
       }
     }
     if (fruit.type == "img") {
-      source = str(fruit.src);
+      source = str("https://cors-anywhere.herokuapp.com/" + fruit.src);
       console.log(source);
       if (fruit.by == localStorage.name) {
         jhatu = createDiv("").addClass("ms1").parent(cont).addClass("msg");
-        createImg(source, "image").parent(jhatu);
+        createImg(source, "image").parent(jhatu).addClass("msImg");
       } else {
         jhatu = createDiv("").addClass("ms1").parent(cont).addClass("msg");
-        createImg(source, "image").parent(jhatu);
+        createImg(source, "image").parent(jhatu).addClass("msImg");
       }
     }
   }
@@ -285,7 +285,7 @@ function hideOptions() {
 function handle(file) {
   console.log(file);
   document.querySelector(".preview").style = "display  : block";
-  createImg(file.data, "Image").addClass("preImg").parent(ppc);
+  document.querySelector(".preI").src = file.data;
 }
 
 function uploadFile() {
@@ -319,6 +319,7 @@ function uploadFile() {
         url = link;
         console.log(url);
         addChatMedia();
+        document.querySelector(".preview").style = "display  : none";
         // pro = true;
       });
     }
@@ -339,9 +340,8 @@ function addChatMedia() {
 
 function done() {
   if (error) {
-    console.log(error);
+    console.log("ooops");
   } else {
-    document.querySelector(".preview").style = "display : none";
-    console.log("op");
+    console.log("data saved!");
   }
 }
