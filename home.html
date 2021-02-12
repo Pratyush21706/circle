@@ -11,6 +11,9 @@
     <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/fontawesome-all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
 
+    <!-- Fuckin Google fonts Imported -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -88,20 +91,27 @@
         <div class="allShit">
             <div class="msgP">
                 <div class="options">
-                    <button class="file-opt"><i class="fa fa-image"></i> Image</button>
-                    <button class="file-opt"><i class="fa fa-camera-retro"></i> Video</button>
-                    <button class="file-opt"><i class="fa fa-file-alt"></i> Document</button>
+                    <label for="img" class="file-opt"><i class="fa fa-image"></i> Image</label>
+                    <label for="vid" class="file-opt"><i class="fa fa-camera-retro"></i> Video</label>
+                    <label for="fil" class="file-opt"><i class="fa fa-file-alt"></i> Document</label>
                 </div>
+                <!-- <input type="file" oninput="handle()" id="img" accept="image/*" class="imageInput"> -->
+                <input type="file" oninput="fuckU()" id="vid" accept="video/*" class="imageInput">
+                <input type="file" oninput="fuckU()" id="fil" accept="document/*" class="imageInput">
                 <button class="insideInput" id="pin" onclick="showOptions()"><i class="fa fa-paperclip"></i></button>
-                <!-- <button class="insideInput" id="cut" onclick="hideOptions()"><i class="fa fa-cut"></i></button> -->
                 <input type="text" class="msgIp" id="msi" placeholder="Type your message here... ">
-                <button class="insideInput" onclick="addChatData()">
+                <button class="insideInput" id="bhejo" onclick="addChatData()">
                     <i class="fa fa-paper-plane"></i>
                 </button>
             </div>
         </div>
     </div>
-
+    <div class="preview">
+        <p>File Preview</p>
+        <div class="pre-parent">
+        </div>
+        <button class="upload" onclick="uploadFile()"><i class="fa fa-paper-plane"></i></button>
+    </div>
 </body>
 
 </html>

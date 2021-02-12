@@ -1,3 +1,4 @@
+var url;
 var alphabets = [
   "a",
   "b",
@@ -30,6 +31,7 @@ var bucket,
   p = 0;
 
 function setup() {
+  // Taking up some stupid html emements
   wrapper = select(".wrapper");
   input1 = select(".ip1");
   input2 = select(".ip2");
@@ -38,6 +40,15 @@ function setup() {
   chatPage = select(".chatPage");
   msgInput = select(".msgIp");
   cont = select(".container");
+  sendButton = select("#bhejo");
+  shit = select(".msgP");
+  ppc = select(".pre-parent");
+
+  // Creatingm the lame input buttons
+  imageInput = createFileInput(handle).attribute("accept", "image/*");
+  imageInput.id("img").addClass("imageInput").parent(shit);
+
+  // Fucking Firebase
   var firebaseConfig = {
     apiKey: "AIzaSyBnNj8bNh5QHXSRxRdxoAlgmrPEA-nFUjw",
     authDomain: "chat-56398.firebaseapp.com",
@@ -71,6 +82,7 @@ function setup() {
   mountainsRef.fullPath === mountainImagesRef.fullPath; // false
 }
 
+// Handeling the data recived from the server
 function gotData(data) {
   console.log("Chata");
   var listings = selectAll(".chat");
@@ -109,6 +121,11 @@ function gotData(data) {
 function draw() {
   name = input2.value();
   number = input1.value();
+  if (msgInput.value().length == 0) {
+    sendButton.style("color", "#9c9b9b");
+  } else {
+    sendButton.style("color", "#000");
+  }
   //    console.log(name)
 }
 
@@ -223,14 +240,25 @@ function gotChatData(data) {
         createDiv(fruit.msg).addClass("ms2").parent(cont).addClass("msg");
       }
     }
+    if (fruit.type == "img") {
+      source = str(fruit.src);
+      console.log(source);
+      if (fruit.by == localStorage.name) {
+        jhatu = createDiv("").addClass("ms1").parent(cont).addClass("msg");
+        createImg(source, "image").parent(jhatu);
+      } else {
+        jhatu = createDiv("").addClass("ms1").parent(cont).addClass("msg");
+        createImg(source, "image").parent(jhatu);
+      }
+    }
   }
   console.log(fruit.msg);
-  document.getElementById("lams").innerHTML = fruit.msg;
+  // document.getElementById("lams").innerHTML = fruit.msg;
 }
 
 function addChatData() {
   var mssg = msgInput.value();
-  console.log(mssg);
+  console.log(bucket);
   document.getElementById("msi").value = "";
   var data = {
     msg: mssg,
@@ -243,11 +271,77 @@ function addChatData() {
 
 function closeChat() {
   chatPage.style("display", "none");
+  ``;
 }
 
 function showOptions() {
   document.querySelector(".options").style = "display : block";
 }
 function hideOptions() {
+  console.log("ojl");
   document.querySelector(".options").style = "display : none";
+}
+
+function handle(file) {
+  console.log(file);
+  document.querySelector(".preview").style = "display  : block";
+  createImg(file.data, "Image").addClass("preImg").parent(ppc);
+}
+
+function uploadFile() {
+  const ref = firebase.storage().ref();
+  const file = document.querySelector("#img").files[0];
+  const name = file.name;
+  console.log(file.type);
+  const metadata = {
+    contentType: file.type,
+  };
+  const task = ref.child(name).put(file, metadata);
+  task.on(
+    "state_changed",
+    (snapshot) => {
+      // Observe state change events such as progress, pause, and resume
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log(
+        "Upload is " + progress + "% done" + " " + snapshot.bytesTransferred
+      );
+      kitna = str(Math.round(progress) + "%");
+    },
+    (error) => {
+      // Handle unsuccessful uploads
+    },
+    () => {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      task.snapshot.ref.getDownloadURL().then((link) => {
+        console.log("File available at", link);
+        url = link;
+        console.log(url);
+        addChatMedia();
+        // pro = true;
+      });
+    }
+  );
+}
+
+function addChatMedia() {
+  console.log(bucket);
+  document.getElementById("msi").value = "";
+  var data = {
+    src: url,
+    type: "img",
+    by: localStorage.name,
+  };
+
+  database.ref(bucket).push(data, done);
+}
+
+function done() {
+  if (error) {
+    console.log(error);
+  } else {
+    document.querySelector(".preview").style = "display : none";
+    console.log("op");
+  }
 }

@@ -3,7 +3,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
   background: #f2f6fa;
 }
 
@@ -318,7 +318,7 @@ body {
   height: 100vh;
   background: #f2f6fa;
   width: 100vw;
-  display: none;
+  /* display: none; */
 }
 
 .header {
@@ -368,6 +368,7 @@ body {
   border: none;
   color: #9c9b9b;
   font-size: 1.1em;
+  transition: 0.5s;
 }
 
 .msgP {
@@ -386,15 +387,19 @@ body {
 .msgIp:focus {
   margin-top: -100vh;
 }
-
+label {
+  /* color: red; */
+  font-weight: 100;
+  font-size: 0.85em;
+}
 .options {
   position: absolute;
   margin-left: 8%;
   background: #f2f6fa;
-  width: 70%;
+  width: 72%;
   height: 40%;
   margin-top: -1%;
-  margin-top: -1px;
+  margin-top: -2px;
   font-size: 1.1em;
   font-weight: 800;
   -webkit-animation-name: max-in;
@@ -442,6 +447,13 @@ body {
 .file-opt:nth-child(3) {
   margin-left: 3.5%;
 }
+.imageInput {
+  position: absolute;
+  width: 16%;
+  margin-left: 12%;
+  margin-top: 500%;
+  opacity: 0;
+}
 .send {
   display: inline-block;
   position: absolute;
@@ -465,7 +477,7 @@ body {
   width: 95%;
   /*    border-radius: 30px;*/
   padding: 2vw;
-  /*    background: red;*/
+  /* background: red; */
   overflow: scroll;
   height: 75vh;
 }
@@ -510,8 +522,55 @@ body {
   margin-top: 10px;
   font-size: 1.1em;
 }
+.preview {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #efefef;
+  z-index: 1000000;
+  -webkit-animation-name: in-bottom;
+  -webkit-animation-duration: 0.6s;
+  display: none;
+}
 
-/*Chat Page Starts Here*/
+.preview p {
+  color: #1f0d32;
+  font-weight: 600;
+  font-size: 1.73em;
+  margin-left: 3%;
+  font-family: Nunito;
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+
+.preview div {
+  margin-top: 1vh;
+  background: black;
+  width: 100vw;
+  height: 50vh;
+  border-radius: 1em;
+  overflow: hidden;
+}
+.preview button {
+  margin-left: 80vw;
+  background-color: #01f5a4;
+  margin-top: 20vh;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 0px 10px 0px #01f5a4;
+  font-weight: 100;
+  padding: 0.9em;
+  border-radius: 29em;
+  color: white;
+}
+
+.preImg {
+  width: 100%;
+  height: 100%;
+}
+
+/*Chat Page Ends Here*/
 
 /*  Animation Section Starts Here  */
 
