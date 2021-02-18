@@ -241,7 +241,7 @@ function gotChatData(data) {
       }
     }
     if (fruit.type == "img") {
-      source = str("https://cors-anywhere.herokuapp.com/" + fruit.src);
+      source = str(fruit.src);
       console.log(source);
       if (fruit.by == localStorage.name) {
         jhatu = createDiv("").addClass("ms1").parent(cont).addClass("msg");
