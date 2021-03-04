@@ -216,11 +216,19 @@ function gotChat(data) {
 
 function gotChatData(data) {
   let objDiv = document.getElementById("chatparent");
-  objDiv.scrollTop = objDiv.scrollHeight - objDiv.clientHeight;
+  objDiv.scrollTop = 808908098;
   console.log("Chata");
   var listings = selectAll(".msg");
   for (var i = 0; i < listings.length; i++) {
     listings[i].remove();
+  }
+  var listingsiMG = selectAll(".msImg");
+  for (var i = 0; i < listingsiMG.length; i++) {
+    listingsiMG[i].remove();
+  }
+  var listingsiMG2 = selectAll(".msImg2");
+  for (var i = 0; i < listingsiMG2.length; i++) {
+    listingsiMG2[i].remove();
   }
   var fruits = data.val();
   // Grab the keys to iterate over the object
@@ -244,11 +252,13 @@ function gotChatData(data) {
       source = str(fruit.src);
       console.log(source);
       if (fruit.by == localStorage.name) {
-        jhatu = createDiv("").addClass("ms1").parent(cont).addClass("msg");
-        createImg(source, "image").parent(jhatu).addClass("msImg");
+        jhatu = createDiv("").addClass("ms1").parent(cont);
+        jhatu.style("background", "none");
+        createImg(source, handleLoad).parent(jhatu).addClass("msImg");
       } else {
-        jhatu = createDiv("").addClass("ms1").parent(cont).addClass("msg");
-        createImg(source, "image").parent(jhatu).addClass("msImg");
+        jhatu = createDiv("").addClass("ms2").parent(cont).addClass("msg");
+        jhatu.style("background", "none");
+        createImg(source, handleLoad).parent(jhatu).addClass("msImg2");
       }
     }
   }
@@ -289,6 +299,7 @@ function handle(file) {
 }
 
 function uploadFile() {
+  document.querySelector(".legend").style = " display  : block";
   const ref = firebase.storage().ref();
   const file = document.querySelector("#img").files[0];
   const name = file.name;
@@ -307,6 +318,7 @@ function uploadFile() {
         "Upload is " + progress + "% done" + " " + snapshot.bytesTransferred
       );
       kitna = str(Math.round(progress) + "%");
+      document.querySelector(".pro_num").innerHTML = kitna;
     },
     (error) => {
       // Handle unsuccessful uploads
@@ -338,10 +350,13 @@ function addChatMedia() {
   database.ref(bucket).push(data, done);
 }
 
-function done() {
+function done(error) {
   if (error) {
     console.log("ooops");
   } else {
     console.log("data saved!");
   }
+}
+function handleLoad() {
+  console.log("Chutia");
 }

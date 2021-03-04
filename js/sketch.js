@@ -1,7 +1,7 @@
 localStorage.name;
 localStorage.number;
 localStorage.avatar;
-localStorage.harami;
+localStorage.haggu;
 var pro = false;
 var initiated = false;
 var url;
@@ -75,19 +75,21 @@ function finished(error) {
     console.log("ooops");
   } else {
     console.log("data saved!");
-    window.location.href = "./home.html";
-    localStorage.harami = 1;
+    localStorage.haggu = 1;
+    document.querySelector(".secondScreen").style = "display:block";
+    document.querySelector("#myPP").style = "display:block";
   }
 }
 
 function draw() {
-  // console.log(localStorage.harami)
-  if (localStorage.harami == null) {
+  // console.log(localStorage.haggu)
+  if (localStorage.haggu == null) {
     // console.log("op")
   }
-  if (localStorage.harami == 1) {
-    window.location.href = "./home.html";
+  if (localStorage.haggu == 1) {
     console.log("jj");
+    document.querySelector(".secondScreen").style = "display:block";
+    document.querySelector("#myPP").style = "display:block";
   }
 }
 
