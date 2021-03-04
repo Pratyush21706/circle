@@ -327,7 +327,7 @@ div::-webkit-scrollbar {
   background-size: 50%;
   background-repeat: repeat;
   width: 100vw;
-  /* display: none; */
+  display: none;
 }
 
 .header {
