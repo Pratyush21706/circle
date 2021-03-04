@@ -321,6 +321,8 @@ div::-webkit-scrollbar {
 .chatPage {
   position: absolute;
   top: 0;
+  bottom : 0;
+  left : 0;
   z-index: 686;
   height: 100vh;
   background: url(1.jpg);
