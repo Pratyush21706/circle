@@ -91,9 +91,11 @@
         <div class="allShit">
             <div class="msgP">
                 <div class="options">
-                    <label for="img" class="file-opt"><i class="fa fa-image"></i> Image</label>
-                    <label for="vid" class="file-opt"><i class="fa fa-camera-retro"></i> Video</label>
-                    <label for="fil" class="file-opt"><i class="fa fa-file-alt"></i> Document</label>
+                    <label for="img" class="file-opt"><i class="fa fa-image"></i> <span class="na">Image</span></label>
+                    <label for="vid" class="file-opt"><i class="fa fa-camera-retro"></i> <span
+                            class="na">Video</span></label>
+                    <label for="fil" class="file-opt"><i class="fa fa-file-alt"></i> <span
+                            class="na">Document</span></label>
                 </div>
                 <!-- <input type="file" oninput="handle()" id="img" accept="image/*" class="imageInput"> -->
                 <input type="file" oninput="fuckU()" id="vid" accept="video/*" class="imageInput">
@@ -110,9 +112,14 @@
         <p>File Preview</p>
         <div class="pre-parent" id="lenge">
             <img class="preI" />
+            <div class="legend">
+                <div class="progress"></div>
+                <p class="pro_num">20</p>
+            </div>
         </div>
         <button class="upload" onclick="uploadFile()"><i class="fa fa-paper-plane"></i></button>
     </div>
+
 </body>
 
 </html>
