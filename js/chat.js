@@ -378,7 +378,7 @@ function toUp() {
   console.log(a);
   if (a == 1) {
     document.querySelector(".allShit").style =
-      "background : 0; margin-top : 72.5vh";
+      "background : blue; margin-top : 85.5vh";
   }
 }
 
