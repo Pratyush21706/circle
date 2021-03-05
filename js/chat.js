@@ -1,4 +1,5 @@
-var url;
+var url,
+  a = 1;
 var alphabets = [
   "a",
   "b",
@@ -48,6 +49,9 @@ function setup() {
   imageInput = createFileInput(handle).attribute("accept", "image/*");
   imageInput.id("img").addClass("imageInput").parent(shit);
 
+  // Allshit
+  allshit = select(".allshit");
+
   // Fucking Firebase
   var firebaseConfig = {
     apiKey: "AIzaSyBnNj8bNh5QHXSRxRdxoAlgmrPEA-nFUjw",
@@ -80,6 +84,9 @@ function setup() {
   // While the file names are the same, the references point to different files
   mountainsRef.name === mountainImagesRef.name; // true
   mountainsRef.fullPath === mountainImagesRef.fullPath; // false
+
+  // Calling some shitty functions
+  setInterval(updateLastSeen, 1000);
 }
 
 // Handeling the data recived from the server
@@ -286,13 +293,19 @@ function closeChat() {
 
 function showOptions() {
   document.querySelector(".options").style = "display : block";
+  console.log("n,m");
+  a = 0;
+  document.querySelector(".allShit").style =
+    "background : 0; margin-top : 90vh";
 }
 function hideOptions() {
   console.log("ojl");
+  document.querySelector(".allShit").style = "margin-top : 90vh";
   document.querySelector(".options").style = "display : none";
 }
 
 function handle(file) {
+  a = 1;
   console.log(file);
   document.querySelector(".preview").style = "display  : block";
   document.querySelector(".preI").src = file.data;
@@ -359,4 +372,21 @@ function done(error) {
 }
 function handleLoad() {
   console.log("Chutia");
+}
+
+function toUp() {
+  console.log(a);
+  if (a == 1) {
+    document.querySelector(".allShit").style =
+      "background : 0; margin-top : 52.5vh";
+  }
+}
+
+function updateLastSeen() {
+  time = day() + "-" + minute();
+  // console.log(time);
+  // var data = {
+  //   time: time,
+  // };
+  // database.ref(localStorage.number).push(data, finished);
 }
