@@ -50,7 +50,8 @@ function setup() {
   imageInput.id("img").addClass("imageInput").parent(shit);
 
   // Allshit
-  allshit = select(".allshit");
+  allshit = select(".allShit");
+  allshit.position(0, window.innerHeight / 1.7);
 
   // Fucking Firebase
   var firebaseConfig = {
@@ -295,12 +296,12 @@ function showOptions() {
   document.querySelector(".options").style = "display : block";
   console.log("n,m");
   a = 0;
-  document.querySelector(".allShit").style =
-    "background : 0; margin-top : 90vh";
+  // document.querySelector(".allShit").style =
+  // "background : 0; margin-top : 90vh";
 }
 function hideOptions() {
   console.log("ojl");
-  document.querySelector(".allShit").style = "margin-top : 90vh";
+  // document.querySelector(".allShit").style = "margin-top : 90vh";
   document.querySelector(".options").style = "display : none";
 }
 
@@ -377,8 +378,8 @@ function handleLoad() {
 function toUp() {
   console.log(a);
   if (a == 1) {
-    document.querySelector(".allShit").style =
-      "background : 0; margin-top : 90vh";
+    // document.querySelector(".allShit").style =
+    // "background : 0; margin-top : 90vh";
   }
 }
 
