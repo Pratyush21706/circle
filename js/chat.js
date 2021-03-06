@@ -41,6 +41,7 @@ function setup() {
   chatPage = select(".chatPage");
   msgInput = select(".msgIp");
   cont = select(".container");
+  container = select(".contacts");
   sendButton = select("#bhejo");
   shit = select(".msgP");
   ppc = select("#lenge");
@@ -123,11 +124,13 @@ function gotData(data) {
       jij.mousePressed(openChat);
     }
   }
+  var ref = database.ref("Global");
+  ref.on("value", gotNewContacts, errData);
 }
 
 function draw() {
-  name = input2.value();
-  number = input1.value();
+  // name = input2.value();
+  // number = input1.value();
   if (msgInput.value().length == 0) {
     sendButton.style("color", "#9c9b9b");
   } else {
@@ -145,6 +148,7 @@ function errData(error) {
 }
 
 function addSend() {
+  console.log("bhj");
   i = Math.round(random(0, 25));
   i2 = Math.round(random(0, 25));
   bucket =
@@ -155,6 +159,7 @@ function addSend() {
   var data = {
     name: name,
     number: number,
+    avatar: avatar,
     bucket: bucket,
     type: "chat",
   };
@@ -389,4 +394,51 @@ function updateLastSeen() {
   //   time: time,
   // };
   // database.ref(localStorage.number).push(data, finished);
+}
+
+function gotNewContacts(data) {
+  console.log("great");
+  var ping = selectAll(".bat");
+  for (var i = 0; i < ping.length; i++) {
+    ping[i].remove();
+  }
+  var fruits = data.val();
+  // Grab the keys to iterate over the object
+  var keys = Object.keys(fruits);
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    // Look at each fruit object!
+    fruit = fruits[key];
+    if (fruit.type != "initial") {
+      chat = createDiv("").addClass("bat").parent(container);
+      ppc = createButton("").addClass("op").parent(chat);
+      uri = str(fruit.avatar);
+      createImg(uri, "profile").addClass("avt").parent(ppc);
+      createP(fruit.name).addClass("name").parent(chat);
+      // createP(fruit.about).addClass("lms").parent(chat).id("lams");
+      jj = createA("#", key).parent(ppc).addClass("thanks");
+      jj.mousePressed(addChat);
+    }
+  }
+}
+
+function addChat() {
+  console.log(this.html());
+  user = "Global" + "/" + this.html();
+  var ref = database.ref(user);
+  ref.on("value", gotUserData, errData);
+}
+
+function gotUserData(data) {
+  console.log("greatest");
+  // var ping = selectAll(".chat");
+  // for (var i = 0; i < ping.length; i++) {
+  //   ping[i].remove();
+  // }
+  var fruits = data.val();
+  // Grab the keys to iterate over the object
+  name = fruits.name;
+  number = fruits.number;
+  avatar = fruits.avatar;
+  addSend();
 }

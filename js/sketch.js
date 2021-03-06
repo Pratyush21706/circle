@@ -1,7 +1,7 @@
 localStorage.name;
 localStorage.number;
 localStorage.avatar;
-localStorage.haggu;
+localStorage.havelt;
 var pro = false;
 var initiated = false;
 var url;
@@ -63,6 +63,7 @@ function finalSend() {
       type: "first",
     };
     database.ref(localStorage.number).push(data, finished);
+    sendData();
   } else if (initiated == true && pro == false) {
     alert("Wait The Profile Pic is Uploading");
   } else {
@@ -75,18 +76,18 @@ function finished(error) {
     console.log("ooops");
   } else {
     console.log("data saved!");
-    localStorage.haggu = 1;
+    localStorage.havelt = 1;
     document.querySelector(".secondScreen").style = "display:block";
     document.querySelector("#myPP").style = "display:block";
   }
 }
 
 function draw() {
-  // console.log(localStorage.haggu)
-  if (localStorage.haggu == null) {
+  // console.log(localStorage.havelt)
+  if (localStorage.havelt == null) {
     // console.log("op")
   }
-  if (localStorage.haggu == 1) {
+  if (localStorage.havelt == 1) {
     console.log("jj");
     document.querySelector(".secondScreen").style = "display:block";
     document.querySelector("#myPP").style = "display:block";
@@ -96,11 +97,11 @@ function draw() {
 function handlePress(file) {
   document.querySelector(".im").src = file.data;
   console.log("file-uploaded");
-  addProfile();
   initiated = true;
 }
 
 function addProfile() {
+  document.querySelector(".progress").style = "display : block";
   const ref = firebase.storage().ref();
   const file = document.querySelector("#myPP").files[0];
   const name = file.name;
@@ -119,6 +120,7 @@ function addProfile() {
         "Upload is " + progress + "% done" + " " + snapshot.bytesTransferred
       );
       kitna = str(Math.round(progress) + "%");
+      document.querySelector("#pro_per").innerHTML = kitna;
     },
     (error) => {
       // Handle unsuccessful uploads
@@ -131,7 +133,19 @@ function addProfile() {
         url = link;
         console.log(url);
         pro = true;
+        finalSend();
       });
     }
   );
+}
+
+function sendData() {
+  console.log("Lutt Gye");
+  var data = {
+    name: localStorage.name,
+    number: localStorage.number,
+    avatar: url,
+    type: "data",
+  };
+  database.ref("Global").push(data, finished);
 }
