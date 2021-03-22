@@ -1,7 +1,7 @@
 localStorage.name;
 localStorage.number;
 localStorage.avatar;
-localStorage.havelt;
+localStorage.mkbhd;
 var pro = false;
 var initiated = false;
 var url;
@@ -76,7 +76,7 @@ function finished(error) {
     console.log("ooops");
   } else {
     console.log("data saved!");
-    localStorage.havelt = 1;
+    localStorage.mkbhd = 1;
     document.querySelector(".secondScreen").style = "display:block";
     document.querySelector("#myPP").style = "display:block";
   }
@@ -84,10 +84,10 @@ function finished(error) {
 
 function draw() {
   // console.log(localStorage.havelt)
-  if (localStorage.havelt == null) {
+  if (localStorage.mkbhd == null) {
     // console.log("op")
   }
-  if (localStorage.havelt == 1) {
+  if (localStorage.mkbhd == 1) {
     document.querySelector(".secondScreen").style = "display:block";
     document.querySelector("#myPP").style = "display:block";
   }
