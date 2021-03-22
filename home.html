@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/chat.css">
     <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/flaticon.css">
     <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
 
     <!-- Fuckin Google fonts Imported -->
@@ -48,14 +49,16 @@
 
     <div class="bg">
         <div class="block">
+            <button class="backH" onclick="closeAvailable()">
+                <i class="fa fa-angle-left"></i>
+            </button>
             <h2>Available Contact</h2>
             <div class="contacts"></div>
         </div>
     </div>
     <div class="profile" id="prof">
         <div class="mp">
-            <button class="back" onclick="backHome()">
-                <i class="fa fa-arrow-left"></i></button>
+                <i onclick="backHome()" class="fa fa-arrow-left bahenchod"></i>
 
             <h2 id="babare">
                 My Profile
@@ -68,7 +71,6 @@
                 <div class="Details">
                     <h2 id="kam"></h2>
                     <p id="num"></p>
-                    <p id="place">London, Uk</p>
                     <br><br>
                 </div>
                 <div class="stats">
@@ -87,6 +89,9 @@
             <button class="backH" onclick="closeChat()">
                 <i class="fa fa-angle-left"></i>
             </button>
+            <button  id="sexy">
+                <img class="avt" id="chotapp"  src="img/Avatars/user.png">
+            </button>
             <h3 id="nam">Your Name</h3>
         </div>
         <div class="container" id="chatparent" onclick="hideOptions()">
@@ -103,8 +108,10 @@
                 <!-- <input type="file" oninput="handle()" id="img" accept="image/*" class="imageInput"> -->
                 <input type="file" oninput="fuckU()" id="vid" accept="video/*" class="imageInput">
                 <input type="file" oninput="fuckU()" id="fil" accept="document/*" class="imageInput">
-                <button class="insideInput" id="pin" onclick="showOptions()"><i class="fa fa-paperclip"></i></button>
-                <input type="text" class="msgIp" id="msi" placeholder="Type your message here... ">
+                <input id = "cImg" type="file" accept="image/*" capture="camera" class = "imageInput">
+                <button class="insideInput" id="pin" onclick="showOptions()">+</button>
+                <textarea rows="1" type="text" class="msgIp" id="msi" placeholder="Type your  here... " ></textarea>
+                <label for="cImg" class="rona"><i class="flaticon-photo-camera"></i></label>
                 <button class="insideInput" id="bhejo" onclick="addChatData()">
                     <i class="fa fa-paper-plane"></i>
                 </button>

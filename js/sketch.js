@@ -88,7 +88,6 @@ function draw() {
     // console.log("op")
   }
   if (localStorage.havelt == 1) {
-    console.log("jj");
     document.querySelector(".secondScreen").style = "display:block";
     document.querySelector("#myPP").style = "display:block";
   }

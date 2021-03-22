@@ -4,7 +4,7 @@ body {
   padding: 0px;
   font-family: sans-serif;
   overflow: hidden;
-  background: hsl(0, 0%, 0%);
+  background: #fff;
 }
 
 /*Home Page Part Starts Here*/
@@ -47,7 +47,7 @@ div::-webkit-scrollbar {
 .top {
   padding-left: 5vw;
   position: fixed;
-  background: hsl(0, 0%, 0%);
+  background : #fff;
   width: 95%;
   height: 12vh;
   z-index: 5;
@@ -57,6 +57,7 @@ div::-webkit-scrollbar {
 
 .top h1 {
   font-size: 8vw;
+  color: #252525;
 }
 
 .nav {
@@ -123,15 +124,15 @@ div::-webkit-scrollbar {
 .chat {
   width: 90%;
   height: 12vh;
-  background: blue;
   margin-left: 5vw;
   /*    z-index: 100;*/
-  background: rgb(228, 228, 228);
+  background: rgba(228, 228, 228, 0.034);
   background: #fff;
   margin-top: 10px;
   border-radius: 10px;
-  background: hsl(0, 0%, 10%);
+  background: #fafafa7e;
   position: relative;
+  
 }
 
 .bat {
@@ -163,7 +164,7 @@ div::-webkit-scrollbar {
   position: absolute;
   font-size: 1.2em;
   margin-top: 2.6vh;
-  color: #f5f5f5;
+  color: #555555;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -182,14 +183,14 @@ div::-webkit-scrollbar {
   height: 100vh;
   position: absolute;
   top: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
   z-index: 989798;
   display: none;
 }
 .block {
   width: 96%;
   padding: 2vw;
-  background: #252525;
+  background: #ffffff;
   box-shadow: 0px -2px 10px 2px rgba(0, 0, 0, 0.1);
   z-index: 9;
   position: absolute;
@@ -217,7 +218,8 @@ div::-webkit-scrollbar {
 .block h2 {
   font-size: 1.9em;
   font-weight: 0;
-  margin-left: 10px;
+  margin-left: 10vw;
+  color :rgb(22, 22, 22)
 }
 
 .block input {
@@ -238,7 +240,7 @@ div::-webkit-scrollbar {
   color: black;
 }
 
-.block button {
+.avt {
   padding: 0.9vh;
   font-size: 3vw;
   width: 50%;
@@ -291,12 +293,20 @@ div::-webkit-scrollbar {
   margin-left: 1vw;
 }
 
-.back {
+.mp button {
   background: none;
   border: 0px;
   font-size: 15px;
   margin-top: 2vh;
   /*        color : #FAFBFD*/
+}
+
+
+#backH{
+  background: none;
+  border: 0px;
+  font-size: 15px;
+  margin-top: 2vh;
 }
 .Details {
   width: 100%;
@@ -343,7 +353,7 @@ div::-webkit-scrollbar {
   top: 0;
   z-index: 686;
   height: 100vh;
-  background: url(1.jpg);
+  background: #f8f8f8;
   background-size: 50%;
   background-repeat: repeat;
   width: 100vw;
@@ -354,18 +364,19 @@ div::-webkit-scrollbar {
   width: 100vw;
   padding: 2vh;
   position: fixed;
-  background: hsl(0, 0%, 10%);
+  background: #fff;
+  border-bottom: 1px solid #95959834;
 }
 
 .header button {
   background: none;
   border: 0px;
-  color: #fff;
+  color: rgb(63, 63, 63);
   font-size: 5vw;
 }
 .header h3 {
   display: inline;
-  color: #ffffff;
+  color: #494949;
 }
 
 .allShit {
@@ -378,14 +389,42 @@ div::-webkit-scrollbar {
   border-top-right-radius: 20px;
 }
 
+#pin{
+  color : dodgerblue;
+  font-size: 1.6em;
+  margin-top: -3px;
+  position: absolute;
+}
+
 .msgIp {
-  margin-left: 1vw;
-  width: 72%;
+  margin-left: 8vw;
+  width: 65%;
   font-size: 1.2em;
   border: 0px;
   background: none;
   outline: none;
   color: Black;
+margin-bottom: -7px;
+margin-top: -12px;
+font-family: sans-serif;
+}
+
+.rona { 
+  position : absolute;
+  font-size: 1.3em;
+  border-right: .1px solid #d1cfcfa8;
+  padding-right : 2vw;
+  color : #555555;
+  padding-top : .8vh;
+  margin-top: -4px;
+}
+
+#bhejo{
+  margin-left: 9.5vw;
+}
+
+.msgIp:placeholder-shown{
+  font-family: sans-serif;
 }
 .msg {
   height: fit-content;
@@ -418,17 +457,17 @@ div::-webkit-scrollbar {
   width: 80%;
   font-size: 4vw;
   padding: 1.3vw;
-  border-radius: 10px;
+  border-radius: 140px;
   border: 0px;
   outline: none;
-  border: 2px solid #d6d9e1;
+  border: 1px solid #d6d9e1;
   padding: 0.5em;
   margin-left: 8%;
   background: hsl(0, 0, 10);
   background: hsl(100, 100%, 100%);
 }
-.msgIp:focus {
-  margin-top: -100vh;
+.msgIp {
+  resize : none
 }
 label {
   /* color: red; */
@@ -570,7 +609,7 @@ label {
   font-size: 1.1em;
 }
 .ms1 {
-  background-color: #353535;
+  background-color: dodgerblue;
   color: white;
   width: fit-content;
   margin-left: auto;
@@ -681,7 +720,7 @@ label {
   -webkit-animation-name: llc;
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
-  margin-top: -75%;
+  margin-top: -77%;
   transition: 0.5s;
 }
 
@@ -750,8 +789,7 @@ label {
 }
 /*  Animation Section Ends Here  */
 
-.contacts .op {
-  background: red;
+ .op {
   width: 8vh;
   height: 8vh;
   border-radius: 10px;
@@ -759,10 +797,57 @@ label {
   margin-left: 4vw;
 }
 
-.contacts .avt {
-  background: red;
+ .avt {
   width: 150%;
   height: 8.5vh;
   overflow: hidden;
-  margin: -10px;
+  margin: -15px;
+}
+
+.contacts .op {
+  width: 8vh;
+  height: 8vh;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 4vw;
+}
+
+ .contacts .avt {
+  width: 155%;
+  height: 8.5vh;
+  overflow: hidden;
+  margin: -15px;
+}
+
+.chat .op{
+  border-radius: 200px;
+}
+
+#sexy{
+  /* margin-left: -74vw; */
+  position: absolute;
+  top : 0;
+  left : 0;
+  padding : 1vw;
+  z-index: 858;
+  background : red;
+  overflow: hidden;
+  width : 10vw;
+  margin-left: 10vw;
+  height : 5.5vh;
+  margin-top: .9vh;
+  border-radius: 10px;
+}
+
+#nam{
+  margin-left: 12vw;
+}
+
+.backH:nth-child(2){
+  position: absolute;
+  background: none;
+  margin-top: 2.95vh;
+  border : none;
+  color  : dodgerblue;
+  font-size: 2.5em;
 }

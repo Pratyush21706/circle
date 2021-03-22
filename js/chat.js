@@ -117,7 +117,8 @@ function gotData(data) {
     if (fruit.type == "chat") {
       chat = createDiv("").addClass("chat").parent(wrapper);
       ppc = createButton("").addClass("op").parent(chat);
-      createImg("img/Avatars/user.png", "profile").addClass("avt").parent(ppc);
+      furl = str(fruit.avatar)
+      createImg(furl, "profile").addClass("avt").parent(ppc);
       createP(fruit.name).addClass("name").parent(chat);
       // createP(fruit.about).addClass("lms").parent(chat).id("lams");
       jij = createA("#", key).parent(ppc).addClass("thanks");
@@ -132,9 +133,9 @@ function draw() {
   // name = input2.value();
   // number = input1.value();
   if (msgInput.value().length == 0) {
-    sendButton.style("color", "#9c9b9b");
+    sendButton.style("color", "#959595");
   } else {
-    sendButton.style("color", "#000");
+    sendButton.style("color", "dodgerblue");
   }
   //    console.log(name)
 }
@@ -177,7 +178,7 @@ function addFriendSend() {
   var data = {
     name: localStorage.name,
     number: localStorage.number,
-    // avatar: localStorage.avatar,
+    avatar: localStorage.avatar,
     bucket: bucket,
     type: "chat",
   };
@@ -202,6 +203,11 @@ function newFriend() {
   puch.style("display", "block");
 }
 
+ function closeAvailable(){
+  puch.style("display", "none");
+  console.log("jkj")
+}
+
 function backHome() {
   profilePage.style("display", "none");
 }
@@ -220,7 +226,9 @@ function gotChat(data) {
   var credits = data.val();
   bucket = credits.bucket;
   console.log(bucket);
+  bur = str(credits.avatar);
   document.getElementById("nam").innerHTML = credits.name;
+  document.getElementById("chotapp").src = bur;
 
   var ref = database.ref(bucket);
   ref.on("value", gotChatData, errData);
@@ -409,7 +417,8 @@ function gotNewContacts(data) {
     var key = keys[i];
     // Look at each fruit object!
     fruit = fruits[key];
-    if (fruit.type != "initial") {
+    console.log(localStorage.name)
+    if (fruit.type != "initial" && fruit.name != localStorage.name) {
       chat = createDiv("").addClass("bat").parent(container);
       ppc = createButton("").addClass("op").parent(chat);
       uri = str(fruit.avatar);
