@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="js/p5.js"></script>
+    <script src="js/p5.dom.min.js"></script>
+    <script src="js/sketch.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/fontawesome-all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Circle</title>
+
+</head>
+
+<body>
+    <!--  Start Writing Code From Here  -->
+
+    <!--    Onboarding Wrapper Starts Here-->
+    <div class="wrapper">
+
+        <!--        Single Card Div Starts -->
+        <div class="card" id=" card1">
+            <div class="imageParent">
+                <img class="obi" src="img/Onboarding/ob1.jpg">
+            </div>
+            <h1>Welcome To Circle</h1>
+            <p>We are very happy to have you here, We strive to make all your chatting private and secure.</p>
+            <div class="nav">
+                <i class="fas fa-circle " id="sld"></i>
+                <i class="far fa-circle"></i>
+                <i class="far fa-circle"></i>
+            </div>
+        </div>
+        <!--        Single Card Div Ends -->
+
+    </div>
+
+    <div class="lurk">
+        <button class="start" onclick="openLogin()">Get Started</button>
+        <p>Alredy have an account,<button class="ref">Sign in?</button></p>
+    </div>
+    <!--    Onboarding Wrapper Ends Here-->
+
+    <!-- Login/Signup Page Starts Here-->
+    <div class="container">
+        <div class="p1">
+            <div class="top">
+                <h2>Continue To Circle</h2>
+                <p>Please Enter Your Mobile Number To Create a Special Account For You.</p>
+                <div class="circ">
+                    <i class="fa fa-phone"></i>
+                </div>
+            </div>
+            <span id="cc">+91</span>
+            <input class="phoneInput" type="number">
+            <br><br>
+            <button onclick="lassan()" class="start blue">
+                Registesr
+            </button>
+            <p class="by">By clicking on `Register` You agree to our <a
+                    href="pratyush21706.github.io/circle/pp.html">Terms & Privacy Policy</a>.</p>
+        </div>
+        <div class="p2">
+            <div class="back"></div>
+            <center> <button class="pic">
+                    <img class="im" id="propic" src="img/Avatars/add.png">
+                </button></center>
+
+            <div class="pool1">
+                <p id="dil">Give yourself a catchy name.</p>
+                <input type="text" class="ipp" placeholder="eg: Bill Doors" spellcheck="false">
+            </div>
+            <button class="start join" onclick="addProfile()">Join Us</button>
+            <div class="progress">
+                <p class="pro"><span id='pro_per'>20%</span><br><span id="pro_comment">Brewing your Account</span></p>
+            </div>
+        </div>
+    </div>
+    <!-- Login/Signup Page Ends Here-->
+
+    <iframe src="./home.html" class="secondScreen"></iframe>
+
+</body>
+
+</html>

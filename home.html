@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="js/p5.js"></script>
+    <script src="js/p5.dom.min.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
+    <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/flaticon.css">
+    <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
+
+    <!-- Fuckin Google fonts Imported -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fill your world with colors -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4285f4">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#4285f4">
+
+    <title>Circle</title>
+
+</head>
+
+<body>
+    <div class="home">
+        <div class="top">
+            <h1>Chats</h1>
+            <button class="opt" onclick="showProfile()">
+                <img class="avt" id="propic" src="img/Avatars/user.png">
+            </button>
+        </div>
+        <div class="wrapper">
+        </div>
+        <button class="refM" onclick="newFriend()">
+            +
+        </button>
+    </div>
+
+    <div class="bg">
+        <div class="block">
+            <button class="backH" onclick="closeAvailable()">
+                <i class="fa fa-angle-left"></i>
+            </button>
+            <h2>Available Contact</h2>
+            <div class="contacts"></div>
+        </div>
+    </div>
+    <div class="profile" id="prof">
+        <div class="mp">
+                <i onclick="backHome()" class="fa fa-arrow-left bahenchod"></i>
+
+            <h2 id="babare">
+                My Profile
+            </h2>
+            <br><br><br>
+            <center>
+                <button class="circle">
+                    <img class="avt1" id="propicB" src="img/Avatars/10.jpg">
+                </button>
+                <div class="Details">
+                    <h2 id="kam"></h2>
+                    <p id="num"></p>
+                    <br><br>
+                </div>
+                <div class="stats">
+                    <p class="inli">Friends</p>
+                    <p class="inli"> Joined</p><br><br>
+                    <h3 class="  laure" id="kitna"> </h3>
+                    <h3 class=" lauren"> 100</h3>
+
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <div class="chatPage">
+        <div class="header">
+            <button class="backH" onclick="closeChat()">
+                <i class="fa fa-angle-left"></i>
+            </button>
+            <button  id="sexy">
+                <img class="avt" id="chotapp"  src="img/Avatars/user.png">
+            </button>
+            <h3 id="nam">Your Name</h3>
+        </div>
+        <div class="container" id="chatparent" onclick="hideOptions()">
+        </div>
+        <div class="allShit" onclick="toUp()">
+            <div class="msgP">
+                <div class="options">
+                    <label for="img" class="file-opt"><i class="fa fa-image"></i> <span class="na">Image</span></label>
+                    <label for="vid" class="file-opt"><i class="fa fa-camera-retro"></i> <span
+                            class="na">Video</span></label>
+                    <label for="fil" class="file-opt"><i class="fa fa-file-alt"></i> <span
+                            class="na">Document</span></label>
+                </div>
+                <!-- <input type="file" oninput="handle()" id="img" accept="image/*" class="imageInput"> -->
+                <input type="file" oninput="fuckU()" id="vid" accept="video/*" class="imageInput">
+                <input type="file" oninput="fuckU()" id="fil" accept="document/*" class="imageInput">
+                <input id = "cImg" type="file" accept="image/*" capture="camera" class = "imageInput">
+                <button class="insideInput" id="pin" onclick="showOptions()">+</button>
+                <textarea rows="1" type="text" class="msgIp" id="msi" placeholder="Type your  here... " ></textarea>
+                <label for="cImg" class="rona"><i class="flaticon-photo-camera"></i></label>
+                <button class="insideInput" id="bhejo" onclick="addChatData()">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="preview">
+        <p>File Preview</p>
+        <div class="pre-parent" id="lenge">
+            <img class="preI" />
+            <div class="legend">
+                <div class="progress"></div>
+                <p class="pro_num">20</p>
+            </div>
+        </div>
+        <button class="upload" onclick="uploadFile()"><i class="fa fa-paper-plane"></i></button>
+    </div>
+
+</body>
+
+</html>
