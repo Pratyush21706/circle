@@ -114,14 +114,12 @@
                    
                     <label for="img" class="file-opt"><i class="fa fa-image"></i> </label>
                     <label for="vid" class="file-opt"><i class="fa fa-camera-retro"></i> </label>
-                    <label for="fil" class="file-opt"><i class="fa fa-file-alt"></i> </label>
+                    <label for="doc" class="file-opt"><i class="fa fa-file-alt"></i> </label>
                 </div>
-                <!-- <input type="file" oninput="handle()" id="img" accept="image/*" class="imageInput"> -->
-                <input type="file" oninput="fuckU()" id="vid" accept="video/*" class="imageInput">
-                <input type="file" oninput="fuckU()" id="fil" accept="document/*" class="imageInput">
+                
                 <input id = "cImg" type="file" accept="image/*" capture="camera" class = "imageInput">
                 <button class="insideInput" id="pin" onclick="showOptions()">+</button>
-                <textarea rows="1" type="text" class="msgIp" id="msi" placeholder="Type your  here... " ></textarea>
+                <textarea rows="1" type="text" class="msgIp" id="msi" placeholder="Type your message... " ></textarea>
                 <label for="cImg" class="rona"><i class="flaticon-photo-camera"></i></label>
                 <button class="insideInput" id="bhejo" onclick="addChatData()">
                     <i class="fa fa-paper-plane"></i>
@@ -138,7 +136,8 @@
                 <p class="pro_num">20</p>
             </div>
         </div>
-        <button class="upload" onclick="uploadFile()"><i class="fa fa-paper-plane"></i></button>
+        <button class="upload" onclick="uploadFile()">Send</button>
+        <label for="img" class="ile">Choose Again</label>
     </div>
 
     <div class="splash">

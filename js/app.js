@@ -69,6 +69,12 @@ function setup() {
   imageInput = createFileInput(handle).attribute("accept", "image/*");
   imageInput.id("img").addClass("imageInput").parent(shit);
 
+  videoInput = createFileInput(handleVideo).attribute("accept", "video/*");
+  videoInput.id("vid").addClass("imageInput").parent(shit);
+
+  documentInput = createFileInput(handleDocument).attribute("accept", "document/*");
+  documentInput.id("doc").addClass("imageInput").parent(shit);
+
   // Allshit
   allshit = select(".allshit");
 
@@ -386,11 +392,19 @@ function hideOptions() {
 
 function handle(file) {
   a = 1;
-  //console.log(file);
+  console.log(file);
   document.querySelector(".preview").style = "display  : block";
   document.querySelector(".preI").src = file.data;
   myNewFile = str(file.data)
   hideOptions();
+}
+
+function handleVideo(file){
+  console.log(file)
+}
+
+function handleDocument(file){
+  console.log(file)
 }
 
 function uploadFile() {

@@ -260,7 +260,7 @@ div::-webkit-scrollbar {
   margin-left: -17%;
   margin-top: -2.5vh;
   border-radius: 15px;
-  opacity: 0;
+  opacity: 1;
   z-index: +789;
 }
 
@@ -767,21 +767,24 @@ label {
   position: absolute;
   top: 0;
   width: 100vw;
-  height: 100vh;
-  background: #000;
+  /* height: 40vh; */
+  background: #1D1C24;
   z-index: 1000000;
   -webkit-animation-name: in-bottom;
   -webkit-animation-duration: 0.6s;
   display: none;
+  padding-bottom: 10vh;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .preview p {
   color: #f0f0f0;
   font-weight: 600;
-  font-size: 1.73em;
-  margin-left: 3%;
+  font-size: 1.23em;
+  margin-left: 5vw;
   font-family: Nunito;
-  margin-top: 5vh;
+  margin-top: 2vh;
   margin-left: 5vw;
 }
 .preI {
@@ -789,30 +792,53 @@ label {
   height: 100%;
 }
 #lenge {
-  margin-top: 1vh;
-  background: black;
-  width: 100vw;
+  margin-top: 5vh;
+  background: 0;
+  width: 90vw;
+  border-radius: 10px;
   /* max-height: 50vh; */
   overflow: hidden;
   position: relative;
   overflow: hidden;
+  margin-left: 5vw;
 }
 .preview button {
-  margin-left: 80vw;
-  background-color: #01f5a4;
+  margin-left: 10vw;
   /* margin-top: 20vh; */
   font-size: 1.2em;
   border: none;
-  box-shadow: 0px 0px 10px 0px #01f5a4;
   font-weight: 100;
-  padding: 0.9em;
-  border-radius: 29em;
+  padding: 02.5vw;
+  width: 35vw;
+  border-radius: .9em;
   color: white;
   position: absolute;
   bottom: 0;
-  margin-bottom: 10vh;
+  margin-bottom: 2vh;
+  background-color: transparent;
+  border: 2px solid #01f515;
+
 }
 
+.ile{
+  position: absolute;
+  top : 0;
+  right : 0;
+  background: rgba(20, 16, 16, 0);
+  color : white;
+  margin-top: 36.5vh;
+  font-size: 1.2em;
+  border: 2px solid #f50101;
+  padding: 02.5vw;
+  width: 35vw;
+  border-radius: .9em;
+  margin-right: 10vw;
+  opacity : .6
+}
+
+.ile:hover{
+  opacity : 1;
+}
 .preImg {
   width: 100%;
   height: 100%;
@@ -857,15 +883,13 @@ label {
 
 @keyframes in-bottom {
   from {
-    margin-top: 80vh;
+    margin-top: -20vh;
     opacity: 0;
-    height: 0vh;
   }
 
   to {
     margin-top: 0vh;
     opacity: 1;
-    height: 100vh;
   }
 }
 
