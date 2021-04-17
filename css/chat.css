@@ -258,9 +258,9 @@ div::-webkit-scrollbar {
   width: 99%;
   height: 11.8vh;
   margin-left: -17%;
-  margin-top: -2.5vh;
+  margin-top: -7.5vh;
   border-radius: 15px;
-  opacity: 1;
+  opacity: .61;
   z-index: +789;
 }
 
@@ -998,4 +998,12 @@ label {
   height : 250%;
   margin-left : -75%;
   margin-top: -30%;
+}
+
+
+@media only screen and (max-width: 320px) {
+  .msgIp {
+    width: 60%;
+  }
+  
 }
