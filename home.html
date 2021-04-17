@@ -32,19 +32,26 @@
 
 </head>
 
+
+
 <body>
     <div class="home">
         <div class="top">
-            <h1>Chats</h1>
-            <button class="opt" onclick="showProfile()">
-                <img class="avt" id="propic" src="img/Avatars/user.png">
-            </button>
+            <p class="greeting">Good <span id="time">Morning</span>, <span id= "userid">Sam</span></p>
+            <h1 id="lelha">Your messages</h1>
         </div>
         <div class="wrapper">
         </div>
-        <button class="refM" onclick="newFriend()">
-            +
-        </button>
+        <div class = "floating-navigatioon">
+    <button class="seduce" onclick="showProfile()">
+        <i class="fa fa-user"></i>
+    </button>
+    <button class="refM" onclick="newFriend()">
+        +
+    </button>
+        </div>
+        
+        
     </div>
 
     <div class="bg">
@@ -90,7 +97,9 @@
                 <i class="fa fa-angle-left"></i>
             </button>
             <button  id="sexy">
-                <img class="avt" id="chotapp"  src="img/Avatars/user.png">
+                <center>
+                <img class="bakyar" id="chotapp"  src="img/Avatars/user.png">
+                </center>
             </button>
             <h3 id="nam">Your Name</h3>
         </div>
@@ -98,12 +107,14 @@
         </div>
         <div class="allShit" onclick="toUp()">
             <div class="msgP">
+<center>
+    <button class="traditional-close" onclick="hideOptions()"></button>
+</center>
                 <div class="options">
-                    <label for="img" class="file-opt"><i class="fa fa-image"></i> <span class="na">Image</span></label>
-                    <label for="vid" class="file-opt"><i class="fa fa-camera-retro"></i> <span
-                            class="na">Video</span></label>
-                    <label for="fil" class="file-opt"><i class="fa fa-file-alt"></i> <span
-                            class="na">Document</span></label>
+                   
+                    <label for="img" class="file-opt"><i class="fa fa-image"></i> </label>
+                    <label for="vid" class="file-opt"><i class="fa fa-camera-retro"></i> </label>
+                    <label for="fil" class="file-opt"><i class="fa fa-file-alt"></i> </label>
                 </div>
                 <!-- <input type="file" oninput="handle()" id="img" accept="image/*" class="imageInput"> -->
                 <input type="file" oninput="fuckU()" id="vid" accept="video/*" class="imageInput">
@@ -128,6 +139,14 @@
             </div>
         </div>
         <button class="upload" onclick="uploadFile()"><i class="fa fa-paper-plane"></i></button>
+    </div>
+
+    <div class="splash">
+        <div>
+            <!-- <img src="" alt=""> -->
+                
+            <!-- </img> -->
+        </div>
     </div>
 
 </body>

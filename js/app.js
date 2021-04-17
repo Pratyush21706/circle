@@ -1,5 +1,6 @@
 var url,
   a = 1;
+  var scrol = false;
 var alphabets = [
   "a",
   "b",
@@ -32,9 +33,23 @@ var bucket,
   p = 0;
 
 function setup() {
+  var current = new Date();
+  hrs= current.getHours();
+  console.log(hrs)
+  // Pranam Pati 
+  if(hrs>=12 && hrs<16){
+  document.getElementById("time").innerHTML = "Afternoon"
+  }
+  if(hrs>=16 && hrs<0){
+    document.getElementById("time").innerHTML = "Evening"
+    }
+    if(hrs>=0 && hrs<11){
+      document.getElementById("time").innerHTML = "Morning"
+      }
+  document.getElementById("userid").innerHTML = localStorage.name;
 
-  console.log("why are you taking this")
 
+  //console.log("why are you taking this")
 
   // Taking up some stupid html emements
   wrapper = select(".wrapper");
@@ -70,10 +85,10 @@ function setup() {
   //Initialising Firebase here
   firebase.initializeApp(firebaseConfig);
   //    Console Logging firebase
-  console.log(firebase);
+  //console.log(firebase);
   //  Initialising the firebase database
   database = firebase.database();
-  console.log(localStorage.number);
+  //console.log(localStorage.number);
   var ref = database.ref(localStorage.number);
   ref.on("value", gotData, errData);
 
@@ -96,7 +111,9 @@ function setup() {
 
 // Handeling the data recived from the server
 function gotData(data) {
-  console.log("Chata");
+  //console.log("hello ")
+  document.querySelector(".splash").style = "display: none"
+  //console.log("Chata");
   var listings = selectAll(".chat");
   for (var i = 0; i < listings.length; i++) {
     listings[i].remove();
@@ -106,13 +123,13 @@ function gotData(data) {
   var keys = Object.keys(fruits);
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-    console.log(key);
+    //console.log(key);
     // Look at each fruit object!
     fruit = fruits[key];
-    console.log(fruit);
+    //console.log(fruit);
     if (fruit.type == "first") {
       document.getElementById("kam").innerHTML = fruit.name;
-      document.querySelector(".avt").src = fruit.avatar;
+      // document.querySelector(".avt").src = fruit.avatar;
       document.querySelector(".avt1").src = fruit.avatar;
       document.getElementById("num").innerHTML = "+91 " + fruit.number;
       document.getElementById("kitna").innerHTML = keys.length - 1;
@@ -136,24 +153,47 @@ function gotData(data) {
 function draw() {
   // name = input2.value();
   // number = input1.value();
+  if(scrol == true){
+    // console.log("oop")
+  
+  }
   if (msgInput.value().length == 0) {
     sendButton.style("color", "#959595");
   } else {
     sendButton.style("color", "dodgerblue");
   }
-  //    console.log(name)
+  //    //console.log(name)
+
+  var div = document.querySelector('.wrapper');
+
+var hasVerticalScrollbar = div.scrollHeight > div.clientHeight;
+
+if(div.scrollTop > 10){
+  // //console.log("hello world")
+  div.style = "background : blue"
+  document.querySelector(".greeting").style= "display:none"
+  document.querySelector("#lelha").style= "font-size : 6vw;background: 0; text-align: center; margin-top: -1.1vh; padding : 4vw; position: absolute; left : 0; font-weight: lighter;"
+  document.querySelector(".wrapper").style= "margin-top:10vh"
+}else{
+  div.style = "background : green"
+  document.querySelector(".greeting").style= "display:block"
+  document.querySelector("#lelha").style= "font-size : 8vw"
+  document.querySelector(".wrapper").style= "margin-top:14vh"
+  // //console.log("lol")
+}
+
 }
 
 function errData(error) {
   if (error) {
-    console.log("ooops");
+    //console.log("ooops");
   } else {
-    console.log("Wow");
+    //console.log("Wow");
   }
 }
 
 function addSend() {
-  console.log("bhj");
+  //console.log("bhj");
   i = Math.round(random(0, 25));
   i2 = Math.round(random(0, 25));
   bucket =
@@ -179,7 +219,7 @@ function addSend() {
   addFriendSend();
 }
 function addFriendSend() {
-  console.log(localStorage.avatar)
+  //console.log(localStorage.avatar)
   var data = {
     name: localStorage.name,
     number: localStorage.number,
@@ -195,9 +235,9 @@ function addFriendSend() {
 
 function finished(error) {
   if (error) {
-    console.log("ooops");
+    //console.log("ooops");
   } else {
-    console.log("data saved!");
+    //console.log("data saved!");
     puch.style("display", "none");
 
     // window.location.href = "./home.html"
@@ -210,7 +250,7 @@ function newFriend() {
 
  function closeAvailable(){
   puch.style("display", "none");
-  console.log("jkj")
+  //console.log("jkj")
 }
 
 function backHome() {
@@ -225,12 +265,16 @@ function openChat() {
   msgTo = localStorage.number + "/" + this.html();
   chatPage.style("display", "block");
   var ref = database.ref(msgTo);
+  var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight+1000;
   ref.on("value", gotChat, errData);
 }
+
+// This takes data and put the user profile 
 function gotChat(data) {
   var credits = data.val();
   bucket = credits.bucket;
-  console.log(bucket);
+  //console.log(bucket);
   bur = str(credits.avatar);
   document.getElementById("nam").innerHTML = credits.name;
   document.getElementById("chotapp").src = bur;
@@ -239,10 +283,13 @@ function gotChat(data) {
   ref.on("value", gotChatData, errData);
 }
 
+// Takes in adn put up chat data 
 function gotChatData(data) {
-  let objDiv = document.getElementById("chatparent");
-  objDiv.scrollTop = 808908098;
-  console.log("Chata");
+  // let objDiv = document.querySelector(".container");
+  // console.log(objDiv.scrollHeight)
+//  lol =  objDiv.scrollTop = objDiv.scrollHeight;
+// console.log(lol)
+  //console.log("Chata");
   var listings = selectAll(".msg");
   for (var i = 0; i < listings.length; i++) {
     listings[i].remove();
@@ -261,39 +308,49 @@ function gotChatData(data) {
 
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-    console.log(key);
+    //console.log(key);
     // Look at each fruit object!
     fruit = fruits[key];
-    console.log("Console :" + fruit.type);
+    //console.log("Console :" + fruit.type);
     if (fruit.type == "msg") {
+      scrol = true;
       if (fruit.by == localStorage.name) {
-        console.log(fruit.msg);
         createDiv(fruit.msg).addClass("ms1").parent(cont).addClass("msg");
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight;
       } else {
         createDiv(fruit.msg).addClass("ms2").parent(cont).addClass("msg");
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight;
       }
     }
     if (fruit.type == "img") {
       source = str(fruit.src);
-      console.log(source);
+      //console.log(source);
       if (fruit.by == localStorage.name) {
         jhatu = createDiv("").addClass("ms1").parent(cont);
         jhatu.style("background", "none");
         createImg(source, handleLoad).parent(jhatu).addClass("msImg");
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight+1000;
       } else {
         jhatu = createDiv("").addClass("ms2").parent(cont).addClass("msg");
         jhatu.style("background", "none");
         createImg(source, handleLoad).parent(jhatu).addClass("msImg2");
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight+1000;
       }
     }
+    scrol = false;
   }
-  console.log(fruit.msg);
+  //console.log(fruit.msg);
   // document.getElementById("lams").innerHTML = fruit.msg;
 }
 
 function addChatData() {
+   
   var mssg = msgInput.value();
-  console.log(bucket);
+  //console.log(bucket);
   document.getElementById("msi").value = "";
   var data = {
     msg: mssg,
@@ -302,6 +359,7 @@ function addChatData() {
   };
 
   database.ref(bucket).push(data, finished);
+
 }
 
 function closeChat() {
@@ -311,30 +369,41 @@ function closeChat() {
 
 function showOptions() {
   document.querySelector(".options").style = "display : block";
-  console.log("n,m");
+  //console.log("n,m");
   a = 0;
   document.querySelector(".allShit").style =
     "background : 0; margin-top : 90vh";
+    document.querySelector(".traditional-close").style =
+    "display : block";
 }
 function hideOptions() {
-  console.log("ojl");
+  //console.log("ojl");
   document.querySelector(".allShit").style = "margin-top : 90vh";
   document.querySelector(".options").style = "display : none";
+  document.querySelector(".traditional-close").style =
+    "display : none";
 }
 
 function handle(file) {
   a = 1;
-  console.log(file);
+  //console.log(file);
   document.querySelector(".preview").style = "display  : block";
   document.querySelector(".preI").src = file.data;
+  myNewFile = str(file.data)
+  hideOptions();
 }
 
 function uploadFile() {
-  document.querySelector(".legend").style = " display  : block";
+  jhatu = createDiv("").addClass("ms1").parent(cont);
+        jhatu.style("background", "none");
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight+100;
+        createImg(myNewFile, handleLoad).parent(jhatu).addClass("msImg");
+  document.querySelector(".preview").style = " display  : none";
   const ref = firebase.storage().ref();
   const file = document.querySelector("#img").files[0];
   const name = file.name;
-  console.log(file.type);
+  console.log(file);
   const metadata = {
     contentType: file.type,
   };
@@ -358,9 +427,9 @@ function uploadFile() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
       task.snapshot.ref.getDownloadURL().then((link) => {
-        console.log("File available at", link);
+        //console.log("File available at", link);
         url = link;
-        console.log(url);
+        //console.log(url);
         addChatMedia();
         document.querySelector(".preview").style = "display  : none";
         // pro = true;
@@ -370,7 +439,7 @@ function uploadFile() {
 }
 
 function addChatMedia() {
-  console.log(bucket);
+  //console.log(bucket);
   document.getElementById("msi").value = "";
   var data = {
     src: url,
@@ -383,17 +452,17 @@ function addChatMedia() {
 
 function done(error) {
   if (error) {
-    console.log("ooops");
+    //console.log("ooops");
   } else {
     console.log("data saved!");
   }
 }
 function handleLoad() {
-  console.log("Chutia");
+  //console.log("Chutia");
 }
 
 function toUp() {
-  console.log(a);
+  //console.log(a);
   if (a == 1) {
     document.querySelector(".allShit").style =
       "background : 0; margin-top : 90vh";
@@ -402,15 +471,16 @@ function toUp() {
 
 function updateLastSeen() {
   time = day() + "-" + minute();
-  // console.log(time);
+  // //console.log(time);
   // var data = {
   //   time: time,
   // };
   // database.ref(localStorage.number).push(data, finished);
 }
 
+// Searches for new chat for the user
 function gotNewContacts(data) {
-  console.log("great");
+  //console.log("great");
   var ping = selectAll(".bat");
   for (var i = 0; i < ping.length; i++) {
     ping[i].remove();
@@ -422,7 +492,7 @@ function gotNewContacts(data) {
     var key = keys[i];
     // Look at each fruit object!
     fruit = fruits[key];
-    console.log(localStorage.name)
+    //console.log(localStorage.name)
     if (fruit.type != "initial" && fruit.name != localStorage.name) {
       chat = createDiv("").addClass("bat").parent(container);
       ppc = createButton("").addClass("op").parent(chat);
@@ -437,14 +507,14 @@ function gotNewContacts(data) {
 }
 
 function addChat() {
-  console.log(this.html());
+  //console.log(this.html());
   user = "Global" + "/" + this.html();
   var ref = database.ref(user);
   ref.on("value", gotUserData, errData);
 }
 
 function gotUserData(data) {
-  console.log("greatest");
+  //console.log("greatest");
   // var ping = selectAll(".chat");
   // for (var i = 0; i < ping.length; i++) {
   //   ping[i].remove();
