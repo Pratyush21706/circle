@@ -254,12 +254,12 @@ div::-webkit-scrollbar {
 }
 
 .thanks {
-  background: red;
+  background: hotpink;
   position: absolute;
   width: 99%;
   height: 11.8vh;
   margin-left: -17%;
-  margin-top: -7.5vh;
+  margin-top: -2.5vh;
   border-radius: 15px;
   opacity: .81;
   z-index: +729;
@@ -1002,12 +1002,19 @@ label {
 }
 
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 410px) {
   .msgIp {
     width: 50%;
   }
   .thanks{
-    margin-top: 0vh;
+    margin-top: -8vh;
     background: chartreuse;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  thanks{
+    margin-top: 10vh;
+    background: rgb(47, 11, 253);
   }
 }
