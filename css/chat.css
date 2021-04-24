@@ -52,6 +52,7 @@ div::-webkit-scrollbar {
   margin-bottom : 10vw;
   padding-left:  6.5vw;
   padding-right: 6.5vw;
+  z-index: +790;
 }
 
 .refM{
@@ -260,8 +261,8 @@ div::-webkit-scrollbar {
   margin-left: -17%;
   margin-top: -7.5vh;
   border-radius: 15px;
-  opacity: .21;
-  z-index: +789;
+  opacity: .81;
+  z-index: +729;
 }
 
 .block h2 {
@@ -1001,9 +1002,12 @@ label {
 }
 
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 400px) {
   .msgIp {
     width: 50%;
   }
-  
+  .thanks{
+    margin-top: 0vh;
+    background: chartreuse;
+  }
 }
