@@ -6,16 +6,22 @@
     <script src="js/p5.dom.min.js"></script>
     <script src="js/app.js"></script>
 
-
+    <!-- Ling kar  -->
     <link rel="stylesheet" type="text/css" href="css/chat.css">
     <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="web-fonts-with-css/css/flaticon.css">
+
+    <!-- Firebase Ko jara Bulwa Lo  -->
     <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
 
-    <!-- Fuckin Google fonts Imported -->
+    <!-- Google fonts Imported -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
+    <!-- Why Favicon  -->
+    <link rel="shortcut-icon"  href="res/Logo/Logo-1x.png">
+
+    <!-- what is Meta  -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,6 +48,9 @@
         </div>
         <div class="wrapper">
         </div>
+        <div class="some-contrast">
+
+        </div>
         <div class = "floating-navigatioon">
     <button class="seduce" onclick="showProfile()">
         <i class="fa fa-user"></i>
@@ -56,22 +65,20 @@
 
     <div class="bg">
         <div class="block">
-            <button class="backH" onclick="closeAvailable()">
-                <i class="fa fa-angle-left"></i>
+            <button class="traditional-close1
+                " onclick="closeAvailable()">
             </button>
             <h2>Available Contact</h2>
+            <input type = "number" placeholder="Search Contact" class = "search-input" id = "chokra"   autocomplete="off"><button class ="lol" onclick="search()"><i class="fa fa-search"></i></button></input>
             <div class="contacts"></div>
         </div>
     </div>
-    <div class="profile" id="prof">
+    <div class="profile" id="prof" onclick="backHome()">
         <div class="mp">
-                <i onclick="backHome()" class="fa fa-arrow-left bahenchod"></i>
-
             <h2 id="babare">
                 My Profile
             </h2>
             <br><br><br>
-            <center>
                 <button class="circle">
                     <img class="avt1" id="propicB" src="img/Avatars/10.jpg">
                 </button>
@@ -81,12 +88,10 @@
                     <br><br>
                 </div>
                 <div class="stats">
-                    <p class="inli">Friends</p>
-                    <p class="inli"> Joined</p><br><br>
                     <h3 class="  laure" id="kitna"> </h3>
-                    <h3 class=" lauren"> 100</h3>
-
                 </div>
+            <center>
+                <i class="fa fa-crodsshairs bahenchod" ondrag="backHome" draggable="true"></i>
             </center>
         </div>
     </div>
@@ -105,7 +110,7 @@
         </div>
         <div class="container" id="chatparent" onclick="hideOptions()">
         </div>
-        <div class="allShit" onclick="toUp()">
+        <div class="allShit">
             <div class="msgP">
 <center>
     <button class="traditional-close" onclick="hideOptions()"></button>
@@ -128,7 +133,7 @@
         </div>
     </div>
     <div class="preview">
-        <p>File Preview</p>
+        <p>Image Preview</p>
         <div class="pre-parent" id="lenge">
             <img class="preI" />
             <div class="legend">
@@ -140,6 +145,23 @@
         <label for="img" class="ile">Choose Again</label>
     </div>
 
+    <div class="preview-video">
+        <p>Video Preview</p>
+        <div class="pre1-parent" id="lensge">
+            <video class="preV" controls autoplay></video>
+        </div>
+        <button class="upload" onclick="uploadVideo()">Send</button>
+        <label for="img" class="ile">Choose Again</label>
+    </div>
+    <div id ="full-image">
+        <p class = "cut fas fa-times" onclick = "closeFullImage()" ></p> 
+        <img id="full-real"></div>
+    </div>
+
+    <div id ="full-video">
+        <p class = "cut fas fa-times" onclick = "closeFullVideo()" ></p> 
+        <video id="full-vreal" controls autoplay></video>
+    </div>
     <div class="splash">
         <div>
             <!-- <img src="" alt=""> -->
@@ -147,6 +169,8 @@
             <!-- </img> -->
         </div>
     </div>
+
+    
 
 </body>
 

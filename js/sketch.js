@@ -1,7 +1,7 @@
 localStorage.name;
 localStorage.number;
 localStorage.avatar;
-localStorage.darkest;
+localStorage.abcdde;
 var pro = false;
 var initiated = false;
 var url;
@@ -28,7 +28,7 @@ function setup() {
   //Initialising Firebase here
   firebase.initializeApp(firebaseConfig);
   //    Console Logging firebase
-  console.log(localStorage.darkestdarkest);
+  console.log(localStorage.abcddeabcdde);
   //  Initialising the firebase database
   database = firebase.database();
 }
@@ -76,7 +76,7 @@ function finished(error) {
     console.log("ooops");
   } else {
     console.log("data saved!");
-    localStorage.darkest = 1;
+    localStorage.abcdde = 1;
     document.querySelector(".secondScreen").style = "display:block";
     document.querySelector("#myPP").style = "display:block";
     window.location.reload();
@@ -85,10 +85,10 @@ function finished(error) {
 
 function draw() {
   // console.log(localStorage.havelt)
-  if (localStorage.darkest == null) {
+  if (localStorage.abcdde == null) {
     // console.log("op")
   }
-  if (localStorage.darkest == 1) {
+  if (localStorage.abcdde == 1) {
     document.querySelector(".secondScreen").style = "display:block";
     document.querySelector("#myPP").style = "display:block";
   }
@@ -148,5 +148,9 @@ function sendData() {
     avatar: localStorage.avatar,
     type: "data",
   };
+  if(url){
   database.ref("Global").push(data, finished);
+  }else{
+    alert("Upload your shitt!")
+  }
 }

@@ -1,3 +1,7 @@
+var quality = "@!#$%^&*()_+}{:><.,:;[]=-";
+var kyaHai;
+var filArray =[];
+let myArray = [];
 var url,
   a = 1;
   var scrol = false;
@@ -37,13 +41,13 @@ function setup() {
   hrs= current.getHours();
   console.log(hrs)
   // Pranam Pati 
-  if(hrs>=12 && hrs<16){
+  if(hrs>=11){
   document.getElementById("time").innerHTML = "Afternoon"
   }
-  if(hrs>=16 && hrs<0){
+  if(hrs>=16){
     document.getElementById("time").innerHTML = "Evening"
     }
-    if(hrs>=0 && hrs<11){
+    if(hrs<= 12 ){
       document.getElementById("time").innerHTML = "Morning"
       }
   document.getElementById("userid").innerHTML = localStorage.name;
@@ -64,6 +68,7 @@ function setup() {
   sendButton = select("#bhejo");
   shit = select(".msgP");
   ppc = select("#lenge");
+  aadmiInput = select("#chokra")
 
   // Creatingm the lame input buttons
   imageInput = createFileInput(handle).attribute("accept", "image/*");
@@ -145,7 +150,7 @@ function gotData(data) {
       chat = createDiv("").addClass("chat").parent(wrapper);
       ppc = createButton("").addClass("op").parent(chat);
       furl = str(fruit.avatar)
-      createImg(furl, "profile").addClass("avt").parent(ppc);
+      createImg(furl, "profile").addClass("avt").parent(ppc); 
       createP(fruit.name).addClass("name").parent(chat);
       // createP(fruit.about).addClass("lms").parent(chat).id("lams");
       jij = createA("#", key).parent(ppc).addClass("thanks");
@@ -157,20 +162,27 @@ function gotData(data) {
 }
 
 function draw() {
-  // name = input2.value();
-  // number = input1.value();
-  if(scrol == true){
-    // console.log("oop")
-  
+  // name = input2.
+
+  if (aadmiInput.value().length == 0) {
+    document.querySelector(".contacts").style = "background-size: 100%;"
+    document.querySelector(".lol").style = "color : lightgray"
+  } else {
+    document.querySelector(".contacts").style = "background-size: 0%;"
+    document.querySelector(".lol").style = "color : dodgerblue"
   }
+
   if (msgInput.value().length == 0) {
     sendButton.style("color", "#959595");
   } else {
     sendButton.style("color", "dodgerblue");
   }
+
   //    //console.log(name)
 
   var div = document.querySelector('.wrapper');
+   kyaHai = document.getElementById("chokra").value;
+  // console.log(kyaHai)
 
 var hasVerticalScrollbar = div.scrollHeight > div.clientHeight;
 
@@ -252,6 +264,8 @@ function finished(error) {
 
 function newFriend() {
   puch.style("display", "block");
+  document.querySelector(".block").style = "margin-top : 77vh;  border-top-left-radius: 20px;  border-top-right-radius: 20px; ";
+  document.getElementById("chokra").value = "";
 }
 
  function closeAvailable(){
@@ -336,17 +350,39 @@ function gotChatData(data) {
       if (fruit.by == localStorage.name) {
         jhatu = createDiv("").addClass("ms1").parent(cont);
         jhatu.style("background", "none");
-        createImg(source, handleLoad).parent(jhatu).addClass("msImg");
+        myimm = createImg(source, handleLoad).parent(jhatu).addClass("msImg");
+        myimm.mousePressed(baraKaro);
         var objDiv = document.getElementById("chatparent");
         objDiv.scrollTop = objDiv.scrollHeight+1000;
       } else {
         jhatu = createDiv("").addClass("ms2").parent(cont).addClass("msg");
         jhatu.style("background", "none");
-        createImg(source, handleLoad).parent(jhatu).addClass("msImg2");
+        myimm =  createImg(source, handleLoad).parent(jhatu).addClass("msImg2");
+        myimm.mousePressed(baraKaro);
         var objDiv = document.getElementById("chatparent");
         objDiv.scrollTop = objDiv.scrollHeight+1000;
       }
     }
+    if (fruit.type == "vid") {
+      source = str(fruit.src);
+      //console.log(source);
+      if (fruit.by == localStorage.name) {
+        jhatu = createDiv("").addClass("ms1").parent(cont);
+        jhatu.style("background", "none");
+        vivv =createVideo(source, handleLoad).parent(jhatu).addClass("msImg");
+        vivv.mousePressed(bahutBaraKaro);
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight+1000;
+      } else {
+        jhatu = createDiv("").addClass("ms2").parent(cont).addClass("msg");
+        jhatu.style("background", "none");
+        vivv =createVideo(source, handleLoad).parent(jhatu).addClass("msImg2");
+        vivv.mousePressed(bahutBaraKaro);
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight+1000;
+      }
+    }
+
     scrol = false;
   }
   //console.log(fruit.msg);
@@ -400,6 +436,9 @@ function handle(file) {
 }
 
 function handleVideo(file){
+  document.querySelector(".preview-video").style = "display  : block";
+  document.querySelector(".preV").src = file.data;
+  myNewFile = str(file.data)
   console.log(file)
 }
 
@@ -452,6 +491,51 @@ function uploadFile() {
   );
 }
 
+function uploadVideo() {
+  jhatu = createDiv("").addClass("ms1").parent(cont);
+        jhatu.style("background", "none");
+        createVideo(myNewFile, handleLoad).parent(jhatu).addClass("msImg");
+        var objDiv = document.getElementById("chatparent");
+        objDiv.scrollTop = objDiv.scrollHeight+100;
+  document.querySelector(".preview-video").style = " display  : none";
+  const ref = firebase.storage().ref();
+  const file = document.querySelector("#vid").files[0];
+  const name = file.name;
+  console.log(file); 
+  const metadata = {
+    contentType: file.type,
+  };
+  const task = ref.child(name).put(file, metadata);
+  task.on(
+    "state_changed",
+    (snapshot) => {
+      // Observe state change events such as progress, pause, and resume
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log(
+        "Upload is " + progress + "% done" + " " + snapshot.bytesTransferred
+      );
+      kitna = str(Math.round(progress) + "%");
+      document.querySelector(".pro_num").innerHTML = kitna;
+    },
+    (error) => {
+      // Handle unsuccessful uploads
+    },
+    () => {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      task.snapshot.ref.getDownloadURL().then((link) => {
+        //console.log("File available at", link);
+        Vurl = link;
+        //console.log(url);
+        addChatVideo();
+        document.querySelector(".preview-video").style = "display  : none";
+        // pro = true;
+      });
+    }
+  );
+}
+
 function addChatMedia() {
   //console.log(bucket);
   document.getElementById("msi").value = "";
@@ -463,6 +547,19 @@ function addChatMedia() {
 
   database.ref(bucket).push(data, done);
 }
+
+function addChatVideo() {
+  //console.log(bucket);
+  document.getElementById("msi").value = "";
+  var data = {
+    src: Vurl,
+    type: "vid",
+    by: localStorage.name,
+  };
+
+  database.ref(bucket).push(data, done);
+}
+
 
 function done(error) {
   if (error) {
@@ -494,7 +591,9 @@ function updateLastSeen() {
 
 // Searches for new chat for the user
 function gotNewContacts(data) {
-  //console.log("great");
+  // console.log(data);
+  myArray = [];
+
   var ping = selectAll(".bat");
   for (var i = 0; i < ping.length; i++) {
     ping[i].remove();
@@ -507,7 +606,11 @@ function gotNewContacts(data) {
     // Look at each fruit object!
     fruit = fruits[key];
     //console.log(localStorage.name)
-    if (fruit.type != "initial" && fruit.name != localStorage.name) {
+      myArray.push(fruit) 
+      filArray.map(filt => {
+        shot = str(filt);
+    if (fruit.type != "initial" && fruit.name != localStorage.name && shot == fruit.number) {
+      // console.log("d")
       chat = createDiv("").addClass("bat").parent(container);
       ppc = createButton("").addClass("op").parent(chat);
       uri = str(fruit.avatar);
@@ -517,7 +620,10 @@ function gotNewContacts(data) {
       jj = createA("#", key).parent(ppc).addClass("thanks");
       jj.mousePressed(addChat);
     }
+  });
   }
+  // console.log(myArray)
+  // console.log(myArray)
 }
 
 function addChat() {
@@ -539,4 +645,78 @@ function gotUserData(data) {
   number = fruits.number;
   avatar = fruits.avatar;
   addSend();
+}
+
+
+function search(){
+  // var asd = selectAll(".bat");
+  // for (var i = 0; i < asd.length; i++) {
+  //   asd[i].remove();
+  // }
+  console.log("sj")
+  filArray = [];
+    const filterd = myArray.filter(arraya =>
+      arraya.number.toLowerCase().includes(kyaHai.toLowerCase())
+    );
+      // console.log(filterd)
+    filterd.map(fltr => { filArray.push(fltr.number)
+    });
+    // console.log(filArray)
+    // console.log(myArray[1].name.toLowerCase());
+    // console.log(shit.name.toLowerCase())
+    // if(myArray[0].name.toLowerCase() ==  shit.name.toLowerCase()){
+    //   console.log("ds")
+    // }
+    // if(myArray[0].name.toLowerCase().includes(shit.name.toLowerCase())){
+    //   console.log("das")
+    // }
+
+    // quality = shit.number;
+    // console.log(quality)
+
+    var ref = database.ref("Global");
+    ref.on("value", gotNewContacts, errData);
+
+    // some stylimg shit
+    if (aadmiInput.value().length == 0) {
+      document.querySelector(".contacts").style = "backface-visibility: viible;"
+      document.querySelector(".lol").style = "color : dodgerblue"
+      search();
+    } else {
+      document.querySelector(".contacts").style = "backface-visibility: hidden;"
+      document.querySelector(".lol").style = "color : lightgray"
+    }
+    
+    document.querySelector(".block").style = "margin-top : -100px,   border-top-left-radius: 00px;border-top-right-radius: 00px;"
+    
+    
+}
+
+
+// chat = createDiv("").addClass("bat").parent(container);
+// ppc = createButton("").addClass("op").parent(chat);
+// uri = str(fruit.avatar);
+// createImg(uri, "profile").addClass("avt").parent(ppc);
+// createP(fruit.name).addClass("name").parent(chat);
+// createP(fruit.about).addClass("lms").parent(chat).id("lams");
+// jj = createA("#", key).parent(ppc).addClass("thanks");
+// jj.mousePressed(addChat);
+
+function baraKaro(element) {
+  console.log(this)
+  document.getElementById("full-real").src = this.elt.currentSrc;
+  document.getElementById("full-image").style.display = "block";
+}
+
+function bahutBaraKaro(element) {
+  console.log(this)
+  document.getElementById("full-vreal").src = this.elt.currentSrc;
+  document.getElementById("full-video").style.display = "block";
+}
+
+function closeFullImage(){
+  document.getElementById("full-image").style.display = "none";
+}
+function closeFullVideo(){
+  document.getElementById("full-video").style.display = "none";
 }
