@@ -55,13 +55,12 @@ function setup() {
 
   // Fucking Firebase
   var firebaseConfig = {
-    apiKey: "AIzaSyBnNj8bNh5QHXSRxRdxoAlgmrPEA-nFUjw",
-    authDomain: "chat-56398.firebaseapp.com",
-    databaseURL: "https://chat-56398.firebaseio.com",
-    projectId: "chat-56398",
-    storageBucket: "chat-56398.appspot.com",
-    messagingSenderId: "291372313538",
-    appId: "1:291372313538:web:60f67a12d7fdb59745045b",
+    apiKey: "AIzaSyCezJghBt-WB4ecAdNiCBUQ_kf1eoCIuLE",
+  authDomain: "appd-3e5ca.firebaseapp.com",
+  projectId: "appd-3e5ca",
+  storageBucket: "appd-3e5ca.firebasestorage.app",
+  messagingSenderId: "788800251390",
+  appId: "1:788800251390:web:5469c0b230c3998a7d8caf"
   };
   //Initialising Firebase here
   firebase.initializeApp(firebaseConfig);
