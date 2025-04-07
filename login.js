@@ -6,13 +6,12 @@ function setup() {
   container = select(".passwords");
 
   var firebaseConfig = {
-    apiKey: "AIzaSyCpnmd8ciNf8nQDo-bI6jrlCpUXQX7FS9w",
-    authDomain: "mindless-5df97.firebaseapp.com",
-    databaseURL: "https://mindless-5df97-default-rtdb.firebaseio.com",
-    projectId: "mindless-5df97",
-    storageBucket: "mindless-5df97.appspot.com",
-    messagingSenderId: "1022734712146",
-    appId: "1:1022734712146:web:d116ed9ab7336cae914e8b",
+    apiKey: "AIzaSyCezJghBt-WB4ecAdNiCBUQ_kf1eoCIuLE",
+    authDomain: "appd-3e5ca.firebaseapp.com",
+    projectId: "appd-3e5ca",
+    storageBucket: "appd-3e5ca.firebasestorage.app",
+    messagingSenderId: "788800251390",
+    appId: "1:788800251390:web:5c4ae9e3acf413db7d8caf"
   };
   firebase.initializeApp(firebaseConfig);
   console.log(firebase);
